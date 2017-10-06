@@ -12,30 +12,25 @@ namespace ClassLibrary
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Lesson
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Lesson()
         {
-            this.Lessons = new HashSet<Lesson>();
             this.UserInLessons = new HashSet<UserInLesson>();
         }
     
-        public string user_id { get; set; }
-        public string user_name { get; set; }
-        public string password { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public string phone { get; set; }
-        public Nullable<System.DateTime> birthday { get; set; }
-        public Nullable<System.DateTime> create_date { get; set; }
-        public Nullable<System.DateTime> expiration_date { get; set; }
-        public Nullable<bool> is_active { get; set; }
+        public string lesson_id { get; set; }
+        public string lesson_name { get; set; }
+        public string lesson_days { get; set; }
+        public Nullable<System.TimeSpan> lesson_start_time { get; set; }
+        public Nullable<float> lesson_duration { get; set; }
+        public Nullable<int> free_space { get; set; }
+        public string instructor_id { get; set; }
+        public string training_type { get; set; }
+        public string gear { get; set; }
     
-        public virtual Instructor Instructor { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Lesson> Lessons { get; set; }
-        public virtual Manager Manager { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserInLesson> UserInLessons { get; set; }
     }

@@ -13,10 +13,10 @@ namespace ClassLibrary
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FinalProjectDB : DbContext
+    public partial class ServerSideFinalProjectEntities : DbContext
     {
-        public FinalProjectDB()
-            : base("name=FinalProjectDB")
+        public ServerSideFinalProjectEntities()
+            : base("name=ServerSideFinalProjectEntities")
         {
         }
     
@@ -25,6 +25,10 @@ namespace ClassLibrary
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Instructor> Instructors { get; set; }
+        public virtual DbSet<Lesson> Lessons { get; set; }
+        public virtual DbSet<Manager> Managers { get; set; }
+        public virtual DbSet<UserInLesson> UserInLessons { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }
