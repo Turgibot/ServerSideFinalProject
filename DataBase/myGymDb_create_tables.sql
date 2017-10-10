@@ -8,26 +8,10 @@ password char(6) not null ,
 first_name nvarchar(15) not null,
 last_name nvarchar(20) not null,
 phone char(12),
-birthday datetime,
-create_date datetime,
-expiration_date datetime,
-is_active bit default(1),
+birthday date,
+is_manager bit default(0)
 );
 
-create table Managers
-(
-	user_id char(9) primary key foreign key references Users(user_id),
-	experience_months int 
-);
-
-
-create table Instructors
-(
-	user_id char(9) primary key foreign key references Users(user_id),
-);
-
-insert into Instructors
-values('1')
 
 create table Lessons
 (
@@ -36,8 +20,8 @@ lesson_name nvarchar(20) not null,
 lesson_days nvarchar(10),
 lesson_start_time time,
 lesson_duration float(10),
-free_space int check(free_space >=0),
-instructor_id char(9) foreign key references Users(user_id),
+capacity int check(free_space >=0),
+instructor_name nvarchar(25) ,
 training_type char(10) not null,
 gear varchar(80)
 );
@@ -54,10 +38,6 @@ record_id int identity(1,1) primary key
 
 select * 
 from Users
-
-
-select * 
-from Managers
 
 
 select * 

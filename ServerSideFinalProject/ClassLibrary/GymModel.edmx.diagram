@@ -7,8 +7,8 @@
       <Diagram DiagramId="bd47ca3fefea44779f96f9e75f42e467" Name="Diagram1">
         <EntityTypeShape EntityType="ServerSideFinalProjectModel.Instructor" Width="1.5" PointX="8.375" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ServerSideFinalProjectModel.Lesson" Width="1.5" PointX="1.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ServerSideFinalProjectModel.Manager" Width="1.5" PointX="8.5" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ServerSideFinalProjectModel.UserInLesson" Width="1.5" PointX="1.625" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServerSideFinalProjectModel.Manager" Width="1.5" PointX="8.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServerSideFinalProjectModel.UserInLesson" Width="1.5" PointX="1.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ServerSideFinalProjectModel.User" Width="1.5" PointX="5.125" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="ServerSideFinalProjectModel.FK__Instructo__user___4AB81AF0" ManuallyRouted="false" />
         <AssociationConnector Association="ServerSideFinalProjectModel.FK__Lessons__instruc__3E52440B" ManuallyRouted="false" />
