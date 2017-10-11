@@ -17,7 +17,6 @@ namespace ClassLibrary
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Lessons = new HashSet<Lesson>();
             this.UserInLessons = new HashSet<UserInLesson>();
         }
     
@@ -28,14 +27,8 @@ namespace ClassLibrary
         public string last_name { get; set; }
         public string phone { get; set; }
         public Nullable<System.DateTime> birthday { get; set; }
-        public Nullable<System.DateTime> create_date { get; set; }
-        public Nullable<System.DateTime> expiration_date { get; set; }
-        public Nullable<bool> is_active { get; set; }
+        public Nullable<bool> is_manager { get; set; }
     
-        public virtual Instructor Instructor { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Lesson> Lessons { get; set; }
-        public virtual Manager Manager { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserInLesson> UserInLessons { get; set; }
     }

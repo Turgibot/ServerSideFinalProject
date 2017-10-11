@@ -66,13 +66,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GymModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Instructor.cs">
-      <DependentUpon>GymModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Lesson.cs">
-      <DependentUpon>GymModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Manager.cs">
       <DependentUpon>GymModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

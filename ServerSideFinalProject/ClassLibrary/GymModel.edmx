@@ -4,13 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ServerSideFinalProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Instructors">
-          <Key>
-            <PropertyRef Name="user_id" />
-          </Key>
-          <Property Name="user_id" Type="char" MaxLength="9" Nullable="false" />
-        </EntityType>
+      <Schema Namespace="myGymDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Lessons">
           <Key>
             <PropertyRef Name="lesson_id" />
@@ -20,17 +14,10 @@
           <Property Name="lesson_days" Type="nvarchar" MaxLength="10" />
           <Property Name="lesson_start_time" Type="time" Precision="7" />
           <Property Name="lesson_duration" Type="real" />
-          <Property Name="free_space" Type="int" />
-          <Property Name="instructor_id" Type="char" MaxLength="9" />
+          <Property Name="capacity" Type="int" />
+          <Property Name="instructor_name" Type="nvarchar" MaxLength="25" />
           <Property Name="training_type" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="gear" Type="varchar" MaxLength="80" />
-        </EntityType>
-        <EntityType Name="Managers">
-          <Key>
-            <PropertyRef Name="user_id" />
-          </Key>
-          <Property Name="user_id" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="experience_months" Type="int" />
         </EntityType>
         <EntityType Name="UserInLesson">
           <Key>
@@ -51,48 +38,10 @@
           <Property Name="first_name" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="last_name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="phone" Type="char" MaxLength="12" />
-          <Property Name="birthday" Type="datetime" />
-          <Property Name="create_date" Type="datetime" />
-          <Property Name="expiration_date" Type="datetime" />
-          <Property Name="is_active" Type="bit" />
+          <Property Name="birthday" Type="date" />
+          <Property Name="is_manager" Type="bit" />
         </EntityType>
-        <Association Name="FK__Instructo__user___4AB81AF0">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Instructors" Type="Self.Instructors" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Instructors">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Lessons__instruc__3E52440B">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="Lessons" Type="Self.Lessons" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Lessons">
-              <PropertyRef Name="instructor_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Managers__user_i__47DBAE45">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Managers" Type="Self.Managers" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Managers">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__UserInLes__lesso__4222D4EF">
+        <Association Name="FK__UserInLes__lesso__3E52440B">
           <End Role="Lessons" Type="Self.Lessons" Multiplicity="0..1" />
           <End Role="UserInLesson" Type="Self.UserInLesson" Multiplicity="*" />
           <ReferentialConstraint>
@@ -104,7 +53,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserInLes__user___412EB0B6">
+        <Association Name="FK__UserInLes__user___3D5E1FD2">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="UserInLesson" Type="Self.UserInLesson" Multiplicity="*" />
           <ReferentialConstraint>
@@ -116,29 +65,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ServerSideFinalProjectModelStoreContainer">
-          <EntitySet Name="Instructors" EntityType="Self.Instructors" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="myGymDBModelStoreContainer">
           <EntitySet Name="Lessons" EntityType="Self.Lessons" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Managers" EntityType="Self.Managers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInLesson" EntityType="Self.UserInLesson" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Instructo__user___4AB81AF0" Association="Self.FK__Instructo__user___4AB81AF0">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Instructors" EntitySet="Instructors" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Lessons__instruc__3E52440B" Association="Self.FK__Lessons__instruc__3E52440B">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Lessons" EntitySet="Lessons" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Managers__user_i__47DBAE45" Association="Self.FK__Managers__user_i__47DBAE45">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Managers" EntitySet="Managers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__UserInLes__lesso__4222D4EF" Association="Self.FK__UserInLes__lesso__4222D4EF">
+          <AssociationSet Name="FK__UserInLes__lesso__3E52440B" Association="Self.FK__UserInLes__lesso__3E52440B">
             <End Role="Lessons" EntitySet="Lessons" />
             <End Role="UserInLesson" EntitySet="UserInLesson" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserInLes__user___412EB0B6" Association="Self.FK__UserInLes__user___412EB0B6">
+          <AssociationSet Name="FK__UserInLes__user___3D5E1FD2" Association="Self.FK__UserInLes__user___3D5E1FD2">
             <End Role="Users" EntitySet="Users" />
             <End Role="UserInLesson" EntitySet="UserInLesson" />
           </AssociationSet>
@@ -147,14 +82,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ServerSideFinalProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Instructor">
-          <Key>
-            <PropertyRef Name="user_id" />
-          </Key>
-          <Property Name="user_id" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Instructo__user___4AB81AF0" FromRole="Instructors" ToRole="Users" />
-        </EntityType>
+      <Schema Namespace="myGymDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Lesson">
           <Key>
             <PropertyRef Name="lesson_id" />
@@ -164,20 +92,11 @@
           <Property Name="lesson_days" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="lesson_start_time" Type="Time" Precision="7" />
           <Property Name="lesson_duration" Type="Single" />
-          <Property Name="free_space" Type="Int32" />
-          <Property Name="instructor_id" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="capacity" Type="Int32" />
+          <Property Name="instructor_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="training_type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="gear" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Lessons__instruc__3E52440B" FromRole="Lessons" ToRole="Users" />
-          <NavigationProperty Name="UserInLessons" Relationship="Self.FK__UserInLes__lesso__4222D4EF" FromRole="Lessons" ToRole="UserInLesson" />
-        </EntityType>
-        <EntityType Name="Manager">
-          <Key>
-            <PropertyRef Name="user_id" />
-          </Key>
-          <Property Name="user_id" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="experience_months" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Managers__user_i__47DBAE45" FromRole="Managers" ToRole="Users" />
+          <NavigationProperty Name="UserInLessons" Relationship="Self.FK__UserInLes__lesso__3E52440B" FromRole="Lessons" ToRole="UserInLesson" />
         </EntityType>
         <EntityType Name="UserInLesson">
           <Key>
@@ -187,8 +106,8 @@
           <Property Name="lesson_id" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
           <Property Name="participation_datetime" Type="DateTime" Precision="3" />
           <Property Name="record_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Lesson" Relationship="Self.FK__UserInLes__lesso__4222D4EF" FromRole="UserInLesson" ToRole="Lessons" />
-          <NavigationProperty Name="User" Relationship="Self.FK__UserInLes__user___412EB0B6" FromRole="UserInLesson" ToRole="Users" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK__UserInLes__lesso__3E52440B" FromRole="UserInLesson" ToRole="Lessons" />
+          <NavigationProperty Name="User" Relationship="Self.FK__UserInLes__user___3D5E1FD2" FromRole="UserInLesson" ToRole="Users" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -200,40 +119,11 @@
           <Property Name="first_name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="last_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="phone" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
-          <Property Name="birthday" Type="DateTime" Precision="3" />
-          <Property Name="create_date" Type="DateTime" Precision="3" />
-          <Property Name="expiration_date" Type="DateTime" Precision="3" />
-          <Property Name="is_active" Type="Boolean" />
-          <NavigationProperty Name="Instructor" Relationship="Self.FK__Instructo__user___4AB81AF0" FromRole="Users" ToRole="Instructors" />
-          <NavigationProperty Name="Lessons" Relationship="Self.FK__Lessons__instruc__3E52440B" FromRole="Users" ToRole="Lessons" />
-          <NavigationProperty Name="Manager" Relationship="Self.FK__Managers__user_i__47DBAE45" FromRole="Users" ToRole="Managers" />
-          <NavigationProperty Name="UserInLessons" Relationship="Self.FK__UserInLes__user___412EB0B6" FromRole="Users" ToRole="UserInLesson" />
+          <Property Name="birthday" Type="DateTime" Precision="0" />
+          <Property Name="is_manager" Type="Boolean" />
+          <NavigationProperty Name="UserInLessons" Relationship="Self.FK__UserInLes__user___3D5E1FD2" FromRole="Users" ToRole="UserInLesson" />
         </EntityType>
-        <Association Name="FK__Instructo__user___4AB81AF0">
-          <End Role="Users" Type="Self.User" Multiplicity="1" />
-          <End Role="Instructors" Type="Self.Instructor" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Instructors">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Lessons__instruc__3E52440B">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Lessons" Type="Self.Lesson" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Lessons">
-              <PropertyRef Name="instructor_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__UserInLes__lesso__4222D4EF">
+        <Association Name="FK__UserInLes__lesso__3E52440B">
           <End Role="Lessons" Type="Self.Lesson" Multiplicity="0..1" />
           <End Role="UserInLesson" Type="Self.UserInLesson" Multiplicity="*" />
           <ReferentialConstraint>
@@ -245,19 +135,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Managers__user_i__47DBAE45">
-          <End Role="Users" Type="Self.User" Multiplicity="1" />
-          <End Role="Managers" Type="Self.Manager" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Managers">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__UserInLes__user___412EB0B6">
+        <Association Name="FK__UserInLes__user___3D5E1FD2">
           <End Role="Users" Type="Self.User" Multiplicity="0..1" />
           <End Role="UserInLesson" Type="Self.UserInLesson" Multiplicity="*" />
           <ReferentialConstraint>
@@ -269,29 +147,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ServerSideFinalProjectEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Instructors" EntityType="Self.Instructor" />
+        <EntityContainer Name="myGymDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Lessons" EntityType="Self.Lesson" />
-          <EntitySet Name="Managers" EntityType="Self.Manager" />
           <EntitySet Name="UserInLessons" EntityType="Self.UserInLesson" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK__Instructo__user___4AB81AF0" Association="Self.FK__Instructo__user___4AB81AF0">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Instructors" EntitySet="Instructors" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Lessons__instruc__3E52440B" Association="Self.FK__Lessons__instruc__3E52440B">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Lessons" EntitySet="Lessons" />
-          </AssociationSet>
-          <AssociationSet Name="FK__UserInLes__lesso__4222D4EF" Association="Self.FK__UserInLes__lesso__4222D4EF">
+          <AssociationSet Name="FK__UserInLes__lesso__3E52440B" Association="Self.FK__UserInLes__lesso__3E52440B">
             <End Role="Lessons" EntitySet="Lessons" />
             <End Role="UserInLesson" EntitySet="UserInLessons" />
           </AssociationSet>
-          <AssociationSet Name="FK__Managers__user_i__47DBAE45" Association="Self.FK__Managers__user_i__47DBAE45">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Managers" EntitySet="Managers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__UserInLes__user___412EB0B6" Association="Self.FK__UserInLes__user___412EB0B6">
+          <AssociationSet Name="FK__UserInLes__user___3D5E1FD2" Association="Self.FK__UserInLes__user___3D5E1FD2">
             <End Role="Users" EntitySet="Users" />
             <End Role="UserInLesson" EntitySet="UserInLessons" />
           </AssociationSet>
@@ -301,39 +165,24 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ServerSideFinalProjectModelStoreContainer" CdmEntityContainer="ServerSideFinalProjectEntities">
-          <EntitySetMapping Name="Instructors">
-            <EntityTypeMapping TypeName="ServerSideFinalProjectModel.Instructor">
-              <MappingFragment StoreEntitySet="Instructors">
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="myGymDBModelStoreContainer" CdmEntityContainer="myGymDBEntities">
           <EntitySetMapping Name="Lessons">
-            <EntityTypeMapping TypeName="ServerSideFinalProjectModel.Lesson">
+            <EntityTypeMapping TypeName="myGymDBModel.Lesson">
               <MappingFragment StoreEntitySet="Lessons">
                 <ScalarProperty Name="lesson_id" ColumnName="lesson_id" />
                 <ScalarProperty Name="lesson_name" ColumnName="lesson_name" />
                 <ScalarProperty Name="lesson_days" ColumnName="lesson_days" />
                 <ScalarProperty Name="lesson_start_time" ColumnName="lesson_start_time" />
                 <ScalarProperty Name="lesson_duration" ColumnName="lesson_duration" />
-                <ScalarProperty Name="free_space" ColumnName="free_space" />
-                <ScalarProperty Name="instructor_id" ColumnName="instructor_id" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="instructor_name" ColumnName="instructor_name" />
                 <ScalarProperty Name="training_type" ColumnName="training_type" />
                 <ScalarProperty Name="gear" ColumnName="gear" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Managers">
-            <EntityTypeMapping TypeName="ServerSideFinalProjectModel.Manager">
-              <MappingFragment StoreEntitySet="Managers">
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="experience_months" ColumnName="experience_months" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UserInLessons">
-            <EntityTypeMapping TypeName="ServerSideFinalProjectModel.UserInLesson">
+            <EntityTypeMapping TypeName="myGymDBModel.UserInLesson">
               <MappingFragment StoreEntitySet="UserInLesson">
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="lesson_id" ColumnName="lesson_id" />
@@ -343,7 +192,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="ServerSideFinalProjectModel.User">
+            <EntityTypeMapping TypeName="myGymDBModel.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="user_name" ColumnName="user_name" />
@@ -352,9 +201,7 @@
                 <ScalarProperty Name="last_name" ColumnName="last_name" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="birthday" ColumnName="birthday" />
-                <ScalarProperty Name="create_date" ColumnName="create_date" />
-                <ScalarProperty Name="expiration_date" ColumnName="expiration_date" />
-                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_manager" ColumnName="is_manager" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

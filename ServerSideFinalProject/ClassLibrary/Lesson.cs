@@ -25,12 +25,11 @@ namespace ClassLibrary
         public string lesson_days { get; set; }
         public Nullable<System.TimeSpan> lesson_start_time { get; set; }
         public Nullable<float> lesson_duration { get; set; }
-        public Nullable<int> free_space { get; set; }
-        public string instructor_id { get; set; }
+        public Nullable<int> capacity { get; set; }
+        public string instructor_name { get; set; }
         public string training_type { get; set; }
         public string gear { get; set; }
     
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserInLesson> UserInLessons { get; set; }
     }
