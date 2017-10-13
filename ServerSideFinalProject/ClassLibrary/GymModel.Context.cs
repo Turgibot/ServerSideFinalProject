@@ -13,10 +13,10 @@ namespace ClassLibrary
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class myGymDBEntities : DbContext
+    public partial class myGymDBConnection : DbContext
     {
-        public myGymDBEntities()
-            : base("name=myGymDBEntities")
+        public myGymDBConnection()
+            : base("name=myGymDBConnection")
         {
         }
     

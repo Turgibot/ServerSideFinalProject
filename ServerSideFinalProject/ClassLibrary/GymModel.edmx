@@ -147,7 +147,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="myGymDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="myGymDBConnection" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Lessons" EntityType="Self.Lesson" />
           <EntitySet Name="UserInLessons" EntityType="Self.UserInLesson" />
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -165,7 +165,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="myGymDBModelStoreContainer" CdmEntityContainer="myGymDBEntities">
+        <EntityContainerMapping StorageEntityContainer="myGymDBModelStoreContainer" CdmEntityContainer="myGymDBConnection">
           <EntitySetMapping Name="Lessons">
             <EntityTypeMapping TypeName="myGymDBModel.Lesson">
               <MappingFragment StoreEntitySet="Lessons">
