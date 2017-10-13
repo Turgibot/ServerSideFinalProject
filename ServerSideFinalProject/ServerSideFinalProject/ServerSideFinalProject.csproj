@@ -256,7 +256,14 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Login.html" />
+    <Content Include="Project_Files\CSS\login.css" />
+    <Content Include="Project_Files\Html\Login.html" />
+    <Content Include="Project_Files\JavaScript\common.js" />
+    <Content Include="Project_Files\JavaScript\login.js" />
+    <Content Include="Project_Files\JavaScript\jquery-1.10.2.min.js" />
+    <Content Include="Project_Files\Media\Audio\google-chrome-about-crash-300x200.png" />
+    <Content Include="Project_Files\Media\Images\image.jpeg" />
+    <Content Include="Project_Files\Media\Video\ruBot1.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />

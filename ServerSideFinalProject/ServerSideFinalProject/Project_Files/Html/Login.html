@@ -4,16 +4,9 @@
     <title>User Login</title>
     <meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <style>
-        table {
-            border-collapse: collapse;
-        }
-
-        table, tr, td {
-            border: 1px solid black;
-        }
-    </style>
+    <link href="../CSS/login.css" rel="stylesheet" />
+    <script src="../JavaScript/common.js"></script>
+    <script src="../JavaScript/login.js"></script>
 
 
 </head>
@@ -41,40 +34,6 @@
 
 
 
-
-    <script>
-
-        function validateUser()
-        {
-            var u = {
-                user_name: $("#user_id").val(),
-                password: $("#user_pass").val()
-            };
-
-            $.ajax({
-                dataType: "json",
-                url: "/api/user/"+u.user_name+"/"+u.password,
-                contentType: "application/json; charset=utf-8",
-                type: "GET",
-          //    data: JSON.stringify(),
-                success: function (data) {
-                                   
-                    if(data == true)
-                         alert("Successfull login\n");
-                   
-                    else 
-                        alert("Bad username or password, please try again!");   
-
-                },
-                error: function () {
-                  
-                    alert("error!");
-                }
-            });
-        }
-
-
-    </script>
 
 
 
