@@ -2,7 +2,7 @@
 onSuccess = function (data) {
 
     if (data == true)
-        alert("Successfull login\n");
+        window.location.href = "home.html";
 
     else
         alert("Bad username or password, please try again!");
