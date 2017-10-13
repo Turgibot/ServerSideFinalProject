@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table, tr, td {
+            border: 1px solid black;
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+    <p>Please insert your details: </p>
+    <table>
+        <tr>
+            <td>Username: </td>
+            <td>
+                <input type="text" placeholder="Insert your username" id="user_id" />
+            </td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td>
+                <input type="text" placeholder="Insert your password" id="user_pass" />
+            </td>
+        </tr>
+    </table>
+
+    <br />
+    <input type="button" value="Submit" onclick="validateUser()" />
+
+
+
+
+    <script>
+
+        function validateUser()
+        {
+            var u = {
+                user_name: $("#user_id").val(),
+                password: $("#user_pass").val()
+            };
+
+            $.ajax({
+                dataType: "json",
+                url: "/api/user/"+u.user_name+"/"+u.password,
+                contentType: "application/json; charset=utf-8",
+                type: "GET",
+          //    data: JSON.stringify(),
+                success: function (data) {
+                
+                    console.log(data);
+
+                    if(data == true)
+                         alert("Successfull login\n");
+                   
+                    else 
+                        alert("Bad username or password, please try again!");
+                    
+
+                 
+
+                },
+                error: function () {
+                  
+                    alert("error!");
+                }
+            });
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>
