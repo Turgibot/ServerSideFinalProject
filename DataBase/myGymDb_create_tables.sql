@@ -20,7 +20,7 @@ lesson_name nvarchar(20) not null,
 lesson_days nvarchar(10),
 lesson_start_time time,
 lesson_duration float(10),
-capacity int check(free_space >=0),
+capacity int check(capacity >=0),
 instructor_name nvarchar(25) ,
 training_type char(10) not null,
 gear varchar(80)
