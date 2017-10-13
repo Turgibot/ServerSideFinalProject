@@ -1,0 +1,52 @@
+﻿.vid{
+    min-width:100%;
+	min-height:100%;
+	width:auto;
+	height:auto;
+    opacity:0.95;
+}
+#logo{
+    z-index:1;
+    height: 150px;
+    top: -10px;
+    right:80%;
+    position: absolute;
+}
+.header{
+    position: absolute;
+    left: 30%;
+    top: 40px;
+    background-color:#080808;
+    border-color:#080808;
+}
+.separate{
+    color: red;
+    position: relative;
+    top: -34px;
+}
+.header_container{
+    width:100%;
+    position:absolute;
+}
+li{
+    font-weight: bold;
+}
+.msg{
+    position:absolute;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    width: 100%;
+    top: 50%;
+    color:whitesmoke;
+    text-shadow: 10px 10px 10px 10px #808080;
+}
+strong{
+    color:red;
+}
+h1{
+    font-size:60px;
+}
+h2{
+    font-size:40px;
+}

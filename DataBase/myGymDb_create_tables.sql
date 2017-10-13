@@ -1,5 +1,14 @@
 ﻿
+ALTER TABLE Lessons
+ALTER COLUMN training_type nvarchar(15);
 
+ALTER TABLE Lessons
+ALTER COLUMN gear nvarchar(80);
+
+
+
+insert into Users
+values('1','turgibot','123456', 'גיא' , 'תורגמן','0537203788',GETDATE(),'1');
 create table Users
 (
 user_id char(9) primary key,
@@ -50,8 +59,6 @@ from UserInLesson
 
 ------------------
 
-insert into Users
-values('2','shimiya','123456', 'שימעון' , 'גניש','0537203788',24/03/1979,GETDATE(),DATEADD(YEAR, 1, GETDATE()),'1');
 
 
 insert into Managers

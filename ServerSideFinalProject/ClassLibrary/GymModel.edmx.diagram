@@ -4,19 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-<<<<<<< HEAD
-      <Diagram DiagramId="668b8ddf619c4cffa95146043b2bded7" Name="Diagram1">
-        <EntityTypeShape EntityType="myGymDBModel.Lesson" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="myGymDBModel.UserInLesson" Width="1.5" PointX="5.375" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="myGymDBModel.User" Width="1.5" PointX="1.125" PointY="1.125" IsExpanded="true" />
-=======
-      <Diagram DiagramId="a6e144fc3bc54f0789e9a18fe18548d1" Name="Diagram1">
-        <EntityTypeShape EntityType="myGymDBModel.Lesson" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="myGymDBModel.UserInLesson" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="myGymDBModel.User" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
->>>>>>> 0dc9bb396844e336e9afa522ab5c850ac1a12736
-        <AssociationConnector Association="myGymDBModel.FK__UserInLes__lesso__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="myGymDBModel.FK__UserInLes__user___3D5E1FD2" ManuallyRouted="false" />
+      <Diagram DiagramId="22ffc42637f842839f22ce82f00f4cb6" Name="Diagram1">
+        <EntityTypeShape EntityType="ServerSideFinalProjectModel.Lesson" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServerSideFinalProjectModel.UserInLesson" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServerSideFinalProjectModel.User" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="ServerSideFinalProjectModel.FK__UserInLes__lesso__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="ServerSideFinalProjectModel.FK__UserInLes__user___29572725" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

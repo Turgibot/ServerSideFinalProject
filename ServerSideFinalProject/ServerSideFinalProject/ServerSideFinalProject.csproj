@@ -252,22 +252,24 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Project_Files\CSS\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Project_Files\CSS\home.css" />
     <Content Include="Project_Files\CSS\login.css" />
+    <Content Include="Project_Files\Html\home.html" />
     <Content Include="Project_Files\Html\Login.html" />
     <Content Include="Project_Files\JavaScript\common.js" />
+    <Content Include="Project_Files\JavaScript\home.js" />
     <Content Include="Project_Files\JavaScript\login.js" />
-    <Content Include="Project_Files\JavaScript\jquery-1.10.2.min.js" />
-    <Content Include="Project_Files\Media\Audio\google-chrome-about-crash-300x200.png" />
-    <Content Include="Project_Files\Media\Images\image.jpeg" />
-    <Content Include="Project_Files\Media\Video\ruBot1.jpg" />
+    <Content Include="Project_Files\JavaScript\jquery.min.js" />
+    <Content Include="Project_Files\Media\Images\logo.png" />
+    <Content Include="Project_Files\Media\Video\clip.mp4" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Project_Files\JavaScript\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -319,6 +321,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Project_Files\Media\Audio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

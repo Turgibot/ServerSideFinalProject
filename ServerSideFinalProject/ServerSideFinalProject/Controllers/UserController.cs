@@ -24,7 +24,7 @@ namespace ServerSideFinalProject.Controllers
         public bool Get(string username, string pass)
         {
             myGymDBConnection db = new myGymDBConnection();
-            User u = db.Users.Single(x => x.user_name == username);
+            User u = db.Users.Single(x => x.user_name.ToLower() == username);
 
             if ((u != null) && (u.password == pass))
                 return true; // true means that the validation is succeed!
