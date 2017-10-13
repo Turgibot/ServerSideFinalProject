@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Lesson.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\UserInLesson.cs" />
     <Compile Include="GymModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
