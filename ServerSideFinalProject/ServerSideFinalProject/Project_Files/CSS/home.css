@@ -15,9 +15,11 @@
 .header{
     position: absolute;
     left: 30%;
-    top: 40px;
-    background-color:#080808;
-    border-color:#080808;
+    top: 20px;
+    background-color:#1e201f;
+    border-color:#1e201f;
+    height: 50px;
+
 }
 .separate{
     color: red;
@@ -27,6 +29,10 @@
 .header_container{
     width:100%;
     position:absolute;
+    height: 50px;
+}
+#active{
+    background-color:#1e201f;
 }
 li{
     font-weight: bold;
@@ -39,7 +45,7 @@ li{
     width: 100%;
     top: 50%;
     color:whitesmoke;
-    text-shadow: 10px 10px 10px 10px #808080;
+    text-shadow: 10px 10px 10px 10px #1e201f;
 }
 strong{
     color:red;
