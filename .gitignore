@@ -246,3 +246,5 @@ ModelManifest.xml
 ServerSideFinalProject/ServerSideFinalProject/ServerSideFinalProject - Shortcut.lnk
 ServerSideFinalProject/ClassLibrary/App.Config
 ServerSideFinalProject/ServerSideFinalProject/Web.config
+BackEndGym/ClassLibrary/ClassLibrary/App.Config
+BackEndGym/ClassLibrary/GymWebApp/Web.config
