@@ -29,15 +29,6 @@ namespace GymWebApp.Controllers
 
             return Request.CreateResponse(HttpStatusCode.NotFound, "");
 
-
-            //myGymDBConnection db = new myGymDBConnection();
-            //User u = db.Users.Single(x => x.user_name.ToLower() == username);
-            //if ((u != null) && (u.password == pass))
-            //    return true; // true means that the validation is succeed!
-
-
-            //return false; // false means that the validation is failed!
-
         }
 
         // POST api/<controller>

@@ -11,10 +11,10 @@ onSuccess = function (data, status , xhr) {
 
 onError = function (xhr, status, thrownError) {
     console.log("failure: " + status + " | " + thrownError + " | " + xhr + " | " + xhr.status);
+
     if (xhr.status == 404 || xhr.status == 500)
         alert("Bad username or password, please try again!");
     
-   
 }
 
 
@@ -25,7 +25,7 @@ onError = function (xhr, status, thrownError) {
 
 function validateUser() {
     var user = {
-        user_name: $("#user_id").val(),
+        user_name: $("#username").val(),
         password: $("#user_pass").val()
     };
 

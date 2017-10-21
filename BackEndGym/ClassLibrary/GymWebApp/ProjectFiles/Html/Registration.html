@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <meta charset="utf-8" />
+
+   
+</head>
+<body>
+
+
+    <h1>Sign Up</h1>
+    <form >
+    
+        Username:    <input type="text" placeholder="Insert your username" id="username" required />
+        <br />    
+               
+        Password:      <input type="password" placeholder="Insert your password" id="user_pass"  />
+        <br />  
+                
+        Confirm Password:     <input type="password" placeholder="Re-enter Your password" id="user_pass_confirm" />
+        <br />    
+                
+        Name:       <input type="text" placeholder="Insert your name" id="user_name"  />
+        <br />      
+          
+                
+        Surname:           <input type="text" placeholder="Insert your surname" id="user_surname" />
+        <br />
+            
+        Phone:          <input type="text" placeholder="Insert your phone number" id="user_phone" />
+        <br />    
+               
+        Date Of Birth:            <input type="date" placeholder="Insert your birthday date" id="user_birthday" />
+        <br />      
+
+      
+        <input type="submit" value="Submit" onclick="checkForm()"/>
+
+    </form>
+
+    <script>
+
+        function checkForm() {
+            //making sure all the inputs are not empty
+            var username_valid = $("#username").val() != "";
+            var pass_valid = $("#user_pass").val() != "";
+            var confirm_pass_valid = $("#user_pass_confirm").val() != "";
+            var name_valid = $("#user_name").val() != "";
+            var surname_valid = $("#user_surname").val() != "";
+            var phone_valid = $("#user_phone").val() != "";
+            var birthday_valid = $("#user_birthday").val() != "";
+
+            //comparing PASSWORD and CONFIRM PASSWORD . In case of exact match localeCompare returns 0 .
+            var password_confirmed = $("#user_pass").val().localeCompare($("#user_pass_confirm").val());
+
+            //if (username_valid && pass_valid && confirm_pass_valid && name_valid && surname_valid && phone_valid && birthday_valid) {
+            //    //here should send the details to the controller
+            //    alert(123);
+            //    return true;
+            //}
+            
+            console.log(username_valid);
+
+
+          
+         
+        }
+           
+
+        
+    </script>
+
+</body>
+</html>
+
+
+

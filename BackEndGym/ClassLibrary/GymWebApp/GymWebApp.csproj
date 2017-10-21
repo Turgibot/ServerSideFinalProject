@@ -266,6 +266,7 @@
     <Content Include="ProjectFiles\Html\home.html" />
     <Content Include="ProjectFiles\Html\index.html" />
     <Content Include="ProjectFiles\Html\Login.html" />
+    <Content Include="ProjectFiles\Html\Registration.html" />
     <Content Include="ProjectFiles\JavaScript\bootstrap.min.js" />
     <Content Include="ProjectFiles\JavaScript\cbpAnimatedHeader.js" />
     <Content Include="ProjectFiles\JavaScript\classie.js" />
