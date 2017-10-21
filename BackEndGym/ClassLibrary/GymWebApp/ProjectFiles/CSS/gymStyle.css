@@ -41,7 +41,7 @@ video{
     width: 100%;
     top: 50%;
     color:whitesmoke;
-    text-shadow: 10px 10px 10px 10px #1e201f;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 6px 5px #001135;
 }
 .down-button {
     position: absolute;
@@ -62,8 +62,9 @@ video{
     position:relative;
 }
 .about-us{
-    font-size:28px;
-    color:white;
+    color: #fff;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 6px 5px #001135;
+    font-size:33px;
     text-align:center;
     top: 40%;
     position: absolute;
