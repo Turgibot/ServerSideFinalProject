@@ -18,19 +18,26 @@ namespace GymWebApp.Controllers
             return "";
         }
 
-        // GET api/user/5
+        // GET api/user/username/pass
 
         [Route("api/user/{username}/{pass}")]
-        public bool Get(string username, string pass)
+        public HttpResponseMessage Get(string username, string pass)
         {
-            myGymDBConnection db = new myGymDBConnection();
-            User u = db.Users.Single(x => x.user_name.ToLower() == username);
-            if ((u != null) && (u.password == pass))
-                return true; // true means that the validation is succeed!
-        
+            User confirmedUser = new User().validateUser(username, pass);
+            if (confirmedUser != null)
+                return Request.CreateResponse(HttpStatusCode.OK, confirmedUser.first_name);
 
-            return false; // false means that the validation is failed!
-            
+            return Request.CreateResponse(HttpStatusCode.NotFound, "");
+
+
+            //myGymDBConnection db = new myGymDBConnection();
+            //User u = db.Users.Single(x => x.user_name.ToLower() == username);
+            //if ((u != null) && (u.password == pass))
+            //    return true; // true means that the validation is succeed!
+
+
+            //return false; // false means that the validation is failed!
+
         }
 
         // POST api/<controller>
