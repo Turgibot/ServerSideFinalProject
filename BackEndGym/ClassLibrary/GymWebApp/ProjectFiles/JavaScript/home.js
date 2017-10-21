@@ -7,7 +7,11 @@
     vid.playbackRate = 0.85;
 
     new WOW().init();
-
+    // add Bootstrap's scrollspy
+    $('body').scrollspy({
+        target: '.navbar',
+        offset: 160
+    });
     $('nav a, .down-button a').bind('click', function () {
         if ($($(this).attr('href')).length>0) {
             $('html, body').stop().animate({
