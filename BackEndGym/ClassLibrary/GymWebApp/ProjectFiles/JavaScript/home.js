@@ -14,4 +14,7 @@
         }, 1500);
         event.preventDefault();
     });
+    $('.dropdown-menu').click(function (e) {
+        e.stopPropagation();
+    })
 });

@@ -31,17 +31,34 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    
                     <ul class="nav navbar-nav navbar-right">
+
                         <li><a href="#">צור קשר</a><span class="separate">\</span></li>
                         <li><a href="#">הרשמה</a><span class="separate">\</span></li>
                         <li><a href="#">גלריה</a><span class="separate">\</span></li>
                         <li><a href="#">בר מועדון הכושר</a><span class="separate">\</span></li>
                         <li><a href="#">המאמנים שלנו</a><span class="separate">\</span></li>
                         <li><a href="#">שיעורים</a><span class="separate">\</span></li>
-                        <li><a href="#">מתחם הכושר</a><span class="separate">\</span></li>
+                        <li><a href="#third">מתחם הכושר</a><span class="separate">\</span></li>
                         <li><a href="#second">קצת עלינו</a><span class="separate">\</span></li>
-                        <li><a href="#first">דף הבית</a></li>
+                        <li><a href="#first">דף הבית</a><span class="separate">\</span></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">לחברים <span class="caret"></span></a>
+                                <ul class="login-register dropdown-menu">
+                                    <li id="title">משתמש רשום</li>
+                                    <li role="separator" class="divider"></li>
+                                    <li>שם משתמש</li>
+                                    <li><input type="email" id="inputEmail" class="form-control" placeholder="שם משתמש" required autofocus></li>
+                                    <li>סיסמה</li>
+                                    <li><input type="password" id="inputPassword" class="form-control" placeholder="סיסמה" required></li>
+                                    <li><button id="login-btn" type="button" class="btn btn-danger">לכניסה</button></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li id="register-link"><a href="register.html">הרשמה לאתר</a></li>
+                                </ul>
+                        </li>
                     </ul>
+                   
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
