@@ -9,6 +9,8 @@ ALTER COLUMN gear nvarchar(80);
 
 insert into Users
 values('1','turgibot','123456', 'גיא' , 'תורגמן','0537203788',GETDATE(),'1');
+
+
 create table Users
 (
 user_id char(9) primary key,
