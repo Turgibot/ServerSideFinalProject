@@ -1,0 +1,229 @@
+﻿body {
+    font-family: 'Open Sans', sans-serif;
+    direction:rtl;
+    overflow-x:hidden;
+    background-color: #222;
+    padding-bottom:80px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+header {
+    display: block;
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: #222;
+    background-size: cover;    
+    
+ 
+}
+.navbar-header{
+    height:100px;  
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+video{
+    width: 100%;
+    height: 100%;   
+    margin: -2.2% 0px 0px 0px;
+    
+}
+
+.msg{   
+    height: 35%;
+    position:absolute;
+    text-align: center;
+    width: 100%;
+    width: 100%;
+    top: 50%;
+    color:whitesmoke;
+    text-shadow: 10px 10px 10px 10px #1e201f;
+}
+.down-button {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0px;
+
+}
+.down-button i {
+    color: white;
+    opacity:0.7;
+}
+.title-image{
+    width:100%;
+    opacity:0.5;
+}
+#second{
+    position:relative;
+}
+.about-us{
+    font-size:28px;
+    color:white;
+    text-align:center;
+    top: 40%;
+    position: absolute;
+    width: 100%;
+}
+@media (max-width: 400px) {
+    .navbar-header {
+        position: relative;
+    }
+    .navbar img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 70%;
+    }
+}
+.navbar-inverse .navbar-nav>li>a {
+
+}
+
+
+.cbp-af-header-shrink {
+    height:53px;
+}
+
+.fill-screen {
+    background-size: cover;
+    background-position: center;
+}
+
+.fixed-attachment {
+    background-attachment: fixed;
+}
+.content-filler {
+    min-height: 350px;
+}
+
+.fixed-attachment {
+    background-attachment: fixed;
+}
+@media (max-width: 1024px){
+    .fixed-attachment {
+        background-attachment: scroll;
+    }	
+}
+
+footer {
+    background-color: #333;
+    color: #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+.separate{
+    color: red;
+    position: relative;
+    top: -34px;
+    opacity:1;
+}
+
+#active{
+    background-color:#1e201f;
+}
+li{
+    font-weight: bold;    
+    height: 50px;
+
+}
+strong{
+    color:red;
+}
+h1{
+    font-size:60px;
+}
+h2{
+    font-size:40px;
+    padding-bottom:10px;
+}
+
+@media (max-width: 767px) {
+
+    .range-list h4 {
+        display: inline;
+        font-size: 18px;
+    }
+
+    .range-list a {
+        display: block;
+    }
+
+    .range-list img {
+        width: 33%;
+        height: 33%;
+        margin-right: 10px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+
+}
+
+
+/* The following code is used to create same-sized columns 
+   in a multi-column layout.
+   Code from:  
+   http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height
+*/
+/* columns of same height styles */
+.container-xs-height {
+    display:table;
+    padding-left:0px;
+    padding-right:0px;
+}
+.row-xs-height {
+    display:table-row;
+}
+.col-xs-height {
+    display:table-cell;
+    float:none;
+}
+@media (min-width: 768px) {
+    .container-sm-height {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .row-sm-height {
+        display:table-row;
+    }
+    .col-sm-height {
+        display:table-cell;
+        float:none;
+    }
+}
+}
+@media (min-width: 992px) {
+    .container-md-height {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .row-md-height {
+        display:table-row;
+    }
+    .col-md-height {
+        display:table-cell;
+        float:none;
+    }
+}
+@media (min-width: 1200px) {
+    .container-lg-height {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .row-lg-height {
+        display:table-row;
+    }
+    .col-lg-height {
+        display:table-cell;
+        float:none;
+    }
+}

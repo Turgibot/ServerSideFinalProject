@@ -27,7 +27,7 @@ namespace GymWebApp.Controllers
             User u = db.Users.Single(x => x.user_name.ToLower() == username);
             if ((u != null) && (u.password == pass))
                 return true; // true means that the validation is succeed!
-            User s = User.AddUser();
+        
 
             return false; // false means that the validation is failed!
             

@@ -8,7 +8,7 @@ namespace ClassLibrary
 {
     public partial class User
     {
-        static public  User AddUser(int x)
+         public  User AddUser(int x)
         {
             return new User();
         }

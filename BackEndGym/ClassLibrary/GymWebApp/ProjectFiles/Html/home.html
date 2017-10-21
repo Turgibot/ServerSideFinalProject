@@ -3,41 +3,121 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
-    <script src="../JavaScript/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="../CSS/bootstrap.min.css" rel="stylesheet" />
-    <script src="../JavaScript/bootstrap.min.js"></script>
-    <link href="../CSS/home.css" rel="stylesheet" />
-    <script src="../JavaScript/home.js"></script>
+    <link href="../CSS/animate.css" rel="stylesheet" />
+    <link href="../CSS/font-awesome.min.css" rel="stylesheet" />
+    <link href="../CSS/gymStyle.css" rel="stylesheet" />
 
 </head>
-<body dir="rtl">
-    <div class="header_container">
-        <img id="logo" src="../Media/Images/logo.png" />
-
-        <nav class="header navbar navbar-inverse">
+<body>
+    <header id="first">
+        <nav class="navbar navbar-inverse navbar-fixed-top"
+             role="navigation">
             <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">צור קשר</a><span class="separate">\</span></li>
-                    <li><a href="#">הרשמה</a><span class="separate">\</span></li>
-                    <li><a href="#">גלריה</a><span class="separate">\</span></li>
-                    <li><a href="#">בר מועדון הכושר</a><span class="separate">\</span></li>
-                    <li><a href="#">המאמנים שלנו</a><span class="separate">\</span></li>
-                    <li><a href="#">שיעורים</a><span class="separate">\</span></li>
-                    <li><a href="#">מתחם הכושר</a><span class="separate">\</span></li>
-                    <li><a href="#">אודות</a><span class="separate">\</span></li>
-                    <li><a href="#">דף הבית</a></li>
-                </ul>
-            </div>
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header cbp-af-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#first">
+                        <img src="../Media/Images/site-logo-white.png" />
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">צור קשר</a><span class="separate">\</span></li>
+                        <li><a href="#">הרשמה</a><span class="separate">\</span></li>
+                        <li><a href="#">גלריה</a><span class="separate">\</span></li>
+                        <li><a href="#">בר מועדון הכושר</a><span class="separate">\</span></li>
+                        <li><a href="#">המאמנים שלנו</a><span class="separate">\</span></li>
+                        <li><a href="#">שיעורים</a><span class="separate">\</span></li>
+                        <li><a href="#">מתחם הכושר</a><span class="separate">\</span></li>
+                        <li><a href="#second">קצת עלינו</a><span class="separate">\</span></li>
+                        <li><a href="#first">דף הבית</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
         </nav>
+         <div class="container-fluid">
+        <section class="row video-row"> 
+           
+            <video id="vid" autoplay loop muted>
+                <source src="../Media/Video/clip.mp4" type="video/mp4" />
+            </video>
+            <div class="msg col-md-4">
+                <h1 class="wow slideInLeft">זה <strong>הזמן</strong> לקבל את<strong> הטוב </strong>ביותר</h1>
+                <h2 class="wow slideInRight">ואנחנו פה בשביל <strong>לתת</strong></h2>  
+                <div class="down-button">
+                    <a class="btn" href="#second">
+                        <i class="fa fa-arrow-circle-down fa-4x"></i>
+                    </a>
+                </div>
+            </div>
+          
+        </section>
     </div>
-    <div class="msg">
-        <h1>זה <strong>הזמן</strong> לקבל את<strong> הטוב </strong>ביותר</h1>
-        <h2>ואנחנו פה בשביל <strong>לתת</strong></h2>
 
-    </div>
-    <video class="vid" autoplay muted loop>
-        <source src="../Media/Video/clip.mp4" type="video/mp4" />
-    </video>
+    </header>
+    <section id="second" class="row title-row">
+       
+        <div class="fill-screen">
+            <img class="img-responsive title-image" src="../Media/Images/weights.jpg"/>
+          
+            <div class="down-button">
+               
+                <a class="btn" href="#third">
+                    <i class="f a f a-arrow-circle-down f a-4x"></i>
+                </a>
+            </div>
+        </div>
+        <article class="about-us wow bounceInDown">
+            <p>
+                למרות שמועות על <strong>שביתה</strong> שני חברה שמעון גניש וגיא תורג'מן החליטו לקום ולעשות מעשה.
+            </p>
+            <p>
+                באוקטובר 2017 אחרי תקופת מבחנים מטורפת ישבו השניים ימים אין ספור בשביל להשלים את מה שהתחילו במהלך הסמסטר: 
+            </p>
+            <h2>
+                <strong>הקמת מכון הכושר המתקדם ביותר ברחבי מכללת רופין.</strong>
+            </h2>
+            <p>
+                הזוג החליט לא להתפשר ונאבק בטכנולוגיות מתקדמות שלמדו במהלך הסמסטר ואף שילבו טכנולוגיות חדשות כדי לתת  <strong>ללקוח</strong> את הטוב ביותר.
+            </p>
+            <p>
+                וכך נוצרה החוויה הייחודית ושמה BACKEND GYM.
+            </p>
+        </article>
+       
+    </section>
 
+    <section id="sights" class="row text-banner">
+        <h1>VISIT THE ROCKY MOUNTAINS</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </section>
+
+    <section id="workoutImg" class="row">
+        <div class="fill-screen fixed-attachment" style="background-image: url('../Media/Images/gym.jpg');" >
+        </div>
+    </section>
+   
+    <footer class="container-fluid">
+        <div class="row">
+            <h1>FOOTER</h1>
+        </div>
+    </footer>
+    <script src="../JavaScript/jquery.min.js"></script>
+    <script src="../JavaScript/bootstrap.min.js"></script>
+    <script src="../JavaScript/classie.js"></script>
+    <script src="../JavaScript/cbpAnimatedHeader.js"></script>
+    <script src="../JavaScript/jquery.fs.wallpaper.min.js"></script>
+    <script src="../JavaScript/wow.min.js"></script>
+    <script src="../JavaScript/home.js"></script>
 </body>
 </html>
