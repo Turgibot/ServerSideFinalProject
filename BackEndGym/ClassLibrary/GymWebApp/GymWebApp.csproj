@@ -263,9 +263,11 @@
     <Content Include="ProjectFiles\CSS\app.css" />
     <Content Include="ProjectFiles\CSS\login.css" />
     <Content Include="ProjectFiles\fonts\fontawesome-webfont.svg" />
+    <Content Include="ProjectFiles\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ProjectFiles\Html\home.html" />
     <Content Include="ProjectFiles\Html\index.html" />
     <Content Include="ProjectFiles\Html\Login.html" />
+    <Content Include="ProjectFiles\Html\register.html" />
     <Content Include="ProjectFiles\JavaScript\bootstrap.min.js" />
     <Content Include="ProjectFiles\JavaScript\cbpAnimatedHeader.js" />
     <Content Include="ProjectFiles\JavaScript\classie.js" />
@@ -277,6 +279,9 @@
     <Content Include="ProjectFiles\fonts\fontawesome-webfont.woff" />
     <Content Include="ProjectFiles\fonts\fontawesome-webfont.woff2" />
     <Content Include="ProjectFiles\fonts\FontAwesome.otf" />
+    <Content Include="ProjectFiles\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ProjectFiles\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="ProjectFiles\fonts\glyphicons-halflings-regular.woff" />
     <None Include="ProjectFiles\JavaScript\jquery-2.1.1.intellisense.js" />
     <Content Include="ProjectFiles\JavaScript\jquery.easing.1.3.js" />
     <Content Include="ProjectFiles\JavaScript\jquery.fs.wallpaper.min.js" />

@@ -8,9 +8,15 @@ namespace ClassLibrary
 {
     public partial class User
     {
-         public  User AddUser(int x)
+         public User validateUser(string username, string pass)
         {
-            return new User();
+            myGymDBConnection db = new myGymDBConnection();
+            User u = db.Users.Single(x => x.user_name.ToLower() == username);
+            if ((u != null) && (u.password == pass))
+                return u; //  means that the validation is succeed!
+
+
+            return null; //  means that the validation is failed!
         }
 
     }
