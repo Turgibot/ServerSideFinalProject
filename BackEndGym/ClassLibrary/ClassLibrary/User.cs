@@ -20,7 +20,7 @@ namespace ClassLibrary
             this.UserInLessons = new HashSet<UserInLesson>();
         }
     
-        public string user_id { get; set; }
+        public int user_id { get; set; }
         public string user_name { get; set; }
         public string password { get; set; }
         public string first_name { get; set; }

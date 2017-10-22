@@ -266,6 +266,7 @@
     <Content Include="ProjectFiles\Html\home.html" />
     <Content Include="ProjectFiles\Html\index.html" />
     <Content Include="ProjectFiles\Html\Login.html" />
+    <Content Include="ProjectFiles\Html\register.html" />
     <Content Include="ProjectFiles\Html\Registration.html" />
     <Content Include="ProjectFiles\JavaScript\bootstrap.min.js" />
     <Content Include="ProjectFiles\JavaScript\cbpAnimatedHeader.js" />
@@ -286,6 +287,7 @@
     <Content Include="ProjectFiles\JavaScript\jquery.stellar.min.js" />
     <Content Include="ProjectFiles\JavaScript\login.js" />
     <Content Include="ProjectFiles\JavaScript\npm.js" />
+    <Content Include="ProjectFiles\JavaScript\Registration.js" />
     <Content Include="ProjectFiles\JavaScript\wow.min.js" />
     <Content Include="ProjectFiles\Media\Images\couple.jpg" />
     <Content Include="ProjectFiles\Media\Images\elk.jpg" />

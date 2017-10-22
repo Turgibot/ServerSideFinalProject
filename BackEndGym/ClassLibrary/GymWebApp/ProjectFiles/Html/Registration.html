@@ -4,7 +4,10 @@
     <title>Sign Up</title>
     <meta charset="utf-8" />
 
-   
+    <script src="../JavaScript/jquery.min.js"></script>
+    <script src="../JavaScript/common.js"></script>
+    <script src="../JavaScript/Registration.js"></script>
+    
 </head>
 <body>
 
@@ -12,7 +15,7 @@
     <h1>Sign Up</h1>
     <form >
     
-        Username:    <input type="text" placeholder="Insert your username" id="username" required />
+        Username:    <input type="text" placeholder="Insert your username" id="username"  />
         <br />    
                
         Password:      <input type="password" placeholder="Insert your password" id="user_pass"  />
@@ -35,41 +38,11 @@
         <br />      
 
       
-        <input type="submit" value="Submit" onclick="checkForm()"/>
+        <input type="button" value="Submit" onclick="checkForm()"/>
 
     </form>
 
-    <script>
-
-        function checkForm() {
-            //making sure all the inputs are not empty
-            var username_valid = $("#username").val() != "";
-            var pass_valid = $("#user_pass").val() != "";
-            var confirm_pass_valid = $("#user_pass_confirm").val() != "";
-            var name_valid = $("#user_name").val() != "";
-            var surname_valid = $("#user_surname").val() != "";
-            var phone_valid = $("#user_phone").val() != "";
-            var birthday_valid = $("#user_birthday").val() != "";
-
-            //comparing PASSWORD and CONFIRM PASSWORD . In case of exact match localeCompare returns 0 .
-            var password_confirmed = $("#user_pass").val().localeCompare($("#user_pass_confirm").val());
-
-            //if (username_valid && pass_valid && confirm_pass_valid && name_valid && surname_valid && phone_valid && birthday_valid) {
-            //    //here should send the details to the controller
-            //    alert(123);
-            //    return true;
-            //}
-            
-            console.log(username_valid);
-
-
-          
-         
-        }
-           
-
-        
-    </script>
+   
 
 </body>
 </html>

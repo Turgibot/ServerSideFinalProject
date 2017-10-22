@@ -14,7 +14,7 @@ namespace ClassLibrary
     
     public partial class UserInLesson
     {
-        public string user_id { get; set; }
+        public Nullable<int> user_id { get; set; }
         public string lesson_id { get; set; }
         public Nullable<System.DateTime> participation_datetime { get; set; }
         public int record_id { get; set; }

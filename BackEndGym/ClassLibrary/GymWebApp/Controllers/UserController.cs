@@ -31,9 +31,15 @@ namespace GymWebApp.Controllers
 
         }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        // POST api/user
+        public HttpResponseMessage Post([FromBody]User new_user)
         {
+            bool succeed = new User().addUser(new_user); // Holds true if the new user added successfuly to the database.
+            if (succeed)
+                return Request.CreateResponse(HttpStatusCode.OK, new_user.first_name);
+
+            return Request.CreateResponse(HttpStatusCode.NotFound, "");
+
         }
 
         // PUT api/<controller>/5
