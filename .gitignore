@@ -248,3 +248,7 @@ ServerSideFinalProject/ClassLibrary/App.Config
 ServerSideFinalProject/ServerSideFinalProject/Web.config
 BackEndGym/ClassLibrary/ClassLibrary/App.Config
 BackEndGym/ClassLibrary/GymWebApp/Web.config
+BackEndGym/ClassLibrary/ClassLibrary/GymModel.edmx
+BackEndGym/ClassLibrary/ClassLibrary/Lesson.cs
+BackEndGym/ClassLibrary/ClassLibrary/User.cs
+BackEndGym/ClassLibrary/ClassLibrary/UserInLesson.cs
