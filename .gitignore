@@ -252,3 +252,9 @@ BackEndGym/ClassLibrary/ClassLibrary/GymModel.edmx
 BackEndGym/ClassLibrary/ClassLibrary/Lesson.cs
 BackEndGym/ClassLibrary/ClassLibrary/User.cs
 BackEndGym/ClassLibrary/ClassLibrary/UserInLesson.cs
+BackEndGym/ClassLibrary/ClassLibrary/GymModel.Context.cs
+BackEndGym/ClassLibrary/ClassLibrary/GymModel.Context.tt
+BackEndGym/ClassLibrary/ClassLibrary/GymModel.cs
+BackEndGym/ClassLibrary/ClassLibrary/GymModel.Designer.cs
+BackEndGym/ClassLibrary/ClassLibrary/GymModel.edmx.diagram
+BackEndGym/ClassLibrary/ClassLibrary/GymModel.tt
