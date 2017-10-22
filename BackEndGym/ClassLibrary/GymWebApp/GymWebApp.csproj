@@ -292,6 +292,7 @@
     <Content Include="ProjectFiles\JavaScript\npm.js" />
     <Content Include="ProjectFiles\JavaScript\wow.min.js" />
     <Content Include="ProjectFiles\Media\Images\couple.jpg" />
+    <Content Include="ProjectFiles\Media\Images\favicon.png" />
     <Content Include="ProjectFiles\Media\Images\gym.jpg" />
     <Content Include="ProjectFiles\Media\Images\logo.png" />
     <Content Include="ProjectFiles\Media\Images\site-logo-white.png" />
