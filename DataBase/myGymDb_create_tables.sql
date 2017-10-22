@@ -6,14 +6,13 @@ ALTER TABLE Lessons
 ALTER COLUMN gear nvarchar(80);
 
 
-
 insert into Users
-values('2','turgibot','123456', 'גיא' , 'תורגמן','0537203788',GETDATE(),'1');
+values('eliko','111111','eli','cohen','052123123',GETDATE(),'');
 
 create table Users
 (
 user_id int identity(1,1) primary key,
-user_name char(20) not null UNIQUE,
+user_name char(20) unique not null,
 password char(6) not null ,
 first_name nvarchar(15) not null,
 last_name nvarchar(20) not null,

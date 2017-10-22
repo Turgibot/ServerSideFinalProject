@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Web.Http;
 using ClassLibrary;
 
+
+
 namespace ServerSideFinalProject.Controllers
 {
     public class UserController : ApiController
@@ -14,23 +16,20 @@ namespace ServerSideFinalProject.Controllers
         
         public string Get()
         {
-
+            
             return "";
         }
 
-        // GET api/user/5
-     
+        // GET api/user/username/pass
+        [HttpGet]
         [Route("api/user/{username}/{pass}")]
-        public bool Get(string username, string pass)
+        public bool GetLoginValidation(string username, string pass)
         {
-            myGymDBConnection db = new myGymDBConnection();
-            User u = db.Users.Single(x => x.user_name.ToLower() == username);
-
-            if ((u != null) && (u.password == pass))
-                return true; // true means that the validation is succeed!
+            //need to call User.LoginValidate(username,pass) -- NOT WORKING - WHY?
+          
 
 
-            return false; // false means that the validation is failed!
+            return true;
 
         }
 
