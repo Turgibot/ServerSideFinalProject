@@ -100,7 +100,7 @@ video{
 }
 #down-btn2{
      position: absolute;
-         bottom: 15%;
+         bottom: 10%;
 
 
 }
@@ -114,11 +114,13 @@ video{
 .about-us{
     color: #fff;
 	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 6px 5px #001135;
-    font-size:33px;
+    font-size: 5vh;
     text-align:center;
-    top: 40%;
+    top: 30%;
     position: absolute;
     width: 100%;
+    line-height: 5vh;
+
 }
 @media (max-width: 400px) {
     .navbar-header {
@@ -201,7 +203,7 @@ strong{
     color:red;
 }
 h1{
-    font-size:60px;
+    font-size: 60px;
 }
 h2{
     font-size:40px;

@@ -12,7 +12,7 @@ values('2','turgibot','123456', 'גיא' , 'תורגמן','0537203788',GETDATE()
 
 create table Users
 (
-user_id char(9) primary key,
+user_id int identity(1,1) primary key,
 user_name char(20) not null,
 password char(6) not null ,
 first_name nvarchar(15) not null,
@@ -32,13 +32,13 @@ lesson_start_time time,
 lesson_duration float(10),
 capacity int check(capacity >=0),
 instructor_name nvarchar(25) ,
-training_type char(10) not null,
-gear varchar(80)
+training_type nvarchar(15) not null,
+gear nvarchar(80)
 );
 
 create table UserInLesson
 (
-user_id char(9) foreign key references Users(user_id),
+user_id int foreign key references Users(user_id),
 lesson_id char(9) foreign key references Lessons(lesson_id),
 participation_datetime datetime,
 record_id int identity(1,1) primary key
