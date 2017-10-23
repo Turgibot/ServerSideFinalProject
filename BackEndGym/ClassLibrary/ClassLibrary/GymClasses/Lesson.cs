@@ -55,8 +55,25 @@ namespace ClassLibrary
         {
             try
             {
+                //myGymDBConnection db = new myGymDBConnection();
+                //db.Entry(updated_lesson).State = System.Data.Entity.EntityState.Modified;
+                //var new_lines = db.SaveChanges();
+                //if (new_lines == 0)
+                //    return false;
+
+
                 myGymDBConnection db = new myGymDBConnection();
-                db.Entry(updated_lesson).State = System.Data.Entity.EntityState.Modified;
+                Lesson lesson = db.Lessons.Single(x => x.lesson_id.ToLower() == updated_lesson.lesson_id.ToLower());
+                lesson.lesson_id = updated_lesson.lesson_id;
+                lesson.lesson_name = updated_lesson.lesson_name;
+                lesson.lesson_days = updated_lesson.lesson_days;
+                lesson.lesson_start_time = updated_lesson.lesson_start_time;
+                lesson.lesson_duration = updated_lesson.lesson_duration;
+                lesson.capacity = updated_lesson.capacity;
+                lesson.instructor_name = updated_lesson.instructor_name;
+                lesson.training_type = updated_lesson.training_type;
+                lesson.gear = updated_lesson.gear;
+
                 var new_lines = db.SaveChanges();
                 if (new_lines == 0)
                     return false;
