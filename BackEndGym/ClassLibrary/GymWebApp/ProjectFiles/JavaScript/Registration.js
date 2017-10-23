@@ -1,4 +1,7 @@
-﻿function checkForm() {
+﻿
+new WOW().init();
+
+function checkForm() {
     //making sure all the inputs are not empty
     var username_valid = $("#username").val() != "";
     var pass_valid = $("#user_pass").val() != "";

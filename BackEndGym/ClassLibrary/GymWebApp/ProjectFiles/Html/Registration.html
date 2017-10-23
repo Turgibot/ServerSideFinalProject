@@ -1,48 +1,125 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Sign Up</title>
-    <meta charset="utf-8" />
+    <title>BackEnd Gym</title>
+    <meta charset="utf-8" /><link rel="shortcut icon" type="image/png" href="../Media/Images/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="../CSS/animate.css" rel="stylesheet" />
+    <link href="../CSS/font-awesome.min.css" rel="stylesheet" />
+    <link href="../CSS/gymStyle.css" rel="stylesheet" />
 
-    <script src="../JavaScript/jquery.min.js"></script>
-    <script src="../JavaScript/common.js"></script>
-    <script src="../JavaScript/Registration.js"></script>
-    
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top"
+             role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header cbp-af-header-shrink">
+                    <button type="button" class="navbar-toggle"
+                            data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#first">
+                        <img src="../Media/Images/site-logo-white.png" />
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="#registration">הרשמה</a><span class="separate">\</span></li>
+                        <li><a href="#">צור קשר</a><span class="separate">\</span></li>
+                        <li><a href="#">גלריה</a><span class="separate">\</span></li>
+                        <li><a href="#">בר מועדון הכושר</a><span class="separate">\</span></li>
+                        <li><a href="#">המאמנים שלנו</a><span class="separate">\</span></li>
+                        <li><a href="#"> הרשמה לשיעורים</a><span class="separate">\</span></li>
+                        <li><a href="#third">מתחם הכושר</a><span class="separate">\</span></li>
+                        <li><a href="#second">קצת עלינו</a><span class="separate">\</span></li>
+                        <li><a href="#first">דף הבית</a><span class="separate">\</span></li>
+                        <li class="dropdown">
+                            <a id="friends" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">לחברים <span class="caret"></span></a>
+                            <ul id="friends-li" class="login-register dropdown-menu">
+                                <li id="title">משתמש רשום</li>
+                                <li role="separator" class="divider"></li>
+                                <li>שם משתמש</li>
+                                <li><input type="text" id="user-name" class="form-control" placeholder="שם משתמש" required autofocus></li>
+                                <li>סיסמה</li>
+                                <li><input type="password" id="user-pass" class="form-control" placeholder="סיסמה" required></li>
+                                <li><button id="login-btn" type="button" class="btn btn-danger" onclick="validateUser()">לכניסה</button></li>
+                                <li role="separator" class="divider"></li>
+                                <li id="register-link" onclick="gotoRegisterPage()">הרשמה לאתר</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+        <div class="container-fluid">
+            <section id="second" class="row title-row">
+
+                <div class="">
+                    <img class="img-responsive title-image register-img" src="../Media/Images/registration.jpg" />
+                </div>
+
+            </section>
+
+            <aside id="registration" class = "col-sm-push-4 wow rollIn">
+
+                <form class="registration-form">
+                    <h3 class="form-h3" id="first-h3">שם משתמש</h3>
+                    <input class="form-control" type="text" placeholder="שם משתמש" id="username" />
+                    <br />
+                    <h3 class="form-h3">סיסמה</h3>
+                    <input class="form-control" type="password" placeholder="סיסמה לבחירתך" id="user_pass" />
+                    <br />
+                    <h3 class="form-h3">אימות סיסמה</h3>
+                    <input class="form-control" type="password" placeholder="אימות סימה" id="user_pass_confirm" />
+                    <br />
+                    <h3 class="form-h3">שם פרטי</h3>
+                    <input class="form-control" type="text" placeholder="שם פרטי" id="user_name" />
+                    <br />
+                    <h3 class="form-h3">שם משפחתך</h3>
+                    <input class="form-control" type="text" placeholder="שם משפחתך" id="user_surname" />
+                    <br />
+                    <h3 class="form-h3">מספר טלפון</h3>
+                    <input class="form-control" type="text" placeholder="מספר טלפון" id="user_phone" />
+                    <br />
+                    <h3 class="form-h3">תאריך לידה</h3>
+                    <input class="form-control" type="date" placeholder="תאריך לידתך" id="user_birthday" />
+                    <br />
 
 
-    <h1>Sign Up</h1>
-    <form >
-    
-        Username:    <input type="text" placeholder="Insert your username" id="username"  />
-        <br />    
-               
-        Password:      <input type="password" placeholder="Insert your password" id="user_pass"  />
-        <br />  
-                
-        Confirm Password:     <input type="password" placeholder="Re-enter Your password" id="user_pass_confirm" />
-        <br />    
-                
-        Name:       <input type="text" placeholder="Insert your name" id="user_name"  />
-        <br />      
-          
-                
-        Surname:           <input type="text" placeholder="Insert your surname" id="user_surname" />
-        <br />
-            
-        Phone:          <input type="text" placeholder="Insert your phone number" id="user_phone" />
-        <br />    
-               
-        Date Of Birth:            <input type="date" placeholder="Insert your birthday date" id="user_birthday" />
-        <br />      
+                    <input id="registration-btn" class="btn btn-danger btn-lg"type="button" value="Submit" onclick="checkForm()" />
 
-      
-        <input type="button" value="Submit" onclick="checkForm()"/>
+                </form>
+            </aside>
 
-    </form>
+       
+        </div>
+
 
    
+    
+       
+
+   
+    <script src="../JavaScript/jquery.min.js"></script>
+    <script src="../JavaScript/bootstrap.min.js"></script>
+    <script src="../JavaScript/jquery.fs.wallpaper.min.js"></script>
+    <script src="../JavaScript/wow.min.js"></script>
+    <script src="../JavaScript/common.js"></script>
+    <script src="../JavaScript/Registration.js"></script>
 
 </body>
 </html>

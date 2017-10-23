@@ -147,7 +147,7 @@ video{
     height:53px;
 }
 
-.fill-screen {
+.fill-screen{
     background-size: cover;
     background-position: center;
     overflow:hidden;
@@ -168,7 +168,12 @@ video{
         background-attachment: scroll;
     }	
 }
-
+.register-img {
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
 #carousel {
     margin: 3px 0px;
 }
@@ -176,7 +181,39 @@ video{
     width: 100%;
     height: auto;
 }
+.collapsed{
+    height:53px;
+}
+#registration{
+    background-color:red;
+    width:20%;
+    position:absolute;
+    top:10%;
+    right: 5%;
+    height: 80%;
+    border-radius: 10px;   
+    border: 1px solid black;
+    box-shadow: 10px 10px 5px #888888;
+}
+.form-control{
+    width:90%;
+    margin: auto;
+    height: 3vh;
 
+}
+.form-h3{
+    font-size: 2.9vh;
+    margin:auto;
+    padding-right: 5%;
+
+}
+#first-h3{
+    margin-top: 5%;
+}
+#registration-btn{
+    width: 50%;
+    margin-right: 25%;
+}
 footer {
     background-color: #333;
     color: #ddd;
