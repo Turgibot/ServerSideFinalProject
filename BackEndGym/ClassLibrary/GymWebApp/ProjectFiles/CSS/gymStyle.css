@@ -184,6 +184,13 @@ video{
 .collapsed{
     height:53px;
 }
+#nav-ul>li>a:hover {
+   pointer-events: none;
+   color: #999;
+}
+#reg-a{
+    color: red;
+}
 #registration{
     background-color:red;
     width:20%;
