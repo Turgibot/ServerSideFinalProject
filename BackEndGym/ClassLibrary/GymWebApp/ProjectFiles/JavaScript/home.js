@@ -61,7 +61,7 @@ function validateUser() {
     ajaxHandler(Type.get, urlGenerator(["user", user.user_name, user.password]), "", onSuccess, onError);
 }
 function gotoRegisterPage() {
-    window.location = 'register.html';
+    window.location = 'Registration.html';
 }
 reload = function () {
     window.confirm("תודה שבאת")
