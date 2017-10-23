@@ -26,7 +26,7 @@ create table Lessons
 (
 lesson_id char(9) primary key,
 lesson_name nvarchar(20) not null,
-lesson_days nvarchar(10),
+lesson_days nvarchar(50),
 lesson_start_time time,
 lesson_duration float(10),
 capacity int check(capacity >=0),

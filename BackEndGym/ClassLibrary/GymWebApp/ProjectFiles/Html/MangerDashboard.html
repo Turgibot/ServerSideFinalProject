@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Manager Dashboard</title>
+	<meta charset="utf-8" />
+    <link href="../CSS/MangerDashboard.css" rel="stylesheet" />
+    <script src="../JavaScript/jquery.min.js"></script>
+    <script src="../JavaScript/common.js"></script>
+    <script src="../JavaScript/MangerDashboard.js"></script>
+</head>
+<body>
+
+    <h1 id="hi_admin_name">Hi, </h1>
+    
+    
+    <div id="dashboard_container">
+
+        <table id="bts_tbl">
+            <tr>
+                <td id="td_add_btn">
+                    <input type="button" value="Add Lesson" onclick="createInputTable()" />
+                </td>
+                <td id="td_update_btn">
+                    <input type="button" value="Update Lesson" onclick="getLessonId()" />
+                </td>
+                <td id="td_show_btn">
+                    <input type="button" value="Show Lessons" onclick="getLessons()" />
+                </td>
+            </tr>
+        </table>
+
+        <br /><br />
+
+        <table id="lessons"></table>
+
+        <br /><br />
+
+    </div>
+ 
+
+
+
+</body>
+</html>

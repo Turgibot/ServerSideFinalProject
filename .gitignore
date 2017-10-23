@@ -259,3 +259,4 @@ BackEndGym/ClassLibrary/ClassLibrary/GymModel.Designer.cs
 BackEndGym/ClassLibrary/ClassLibrary/GymModel.edmx.diagram
 BackEndGym/ClassLibrary/ClassLibrary/GymModel.tt
 BackEndGym/ClassLibrary/ClassLibrary/ClassLibrary.csproj
+*.csproj
