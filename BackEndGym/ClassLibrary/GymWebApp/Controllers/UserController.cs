@@ -25,7 +25,7 @@ namespace GymWebApp.Controllers
         {
             User confirmedUser = new User().validateUser(username, pass);
             if (confirmedUser != null)
-                return Request.CreateResponse(HttpStatusCode.OK, confirmedUser.first_name);
+                return Request.CreateResponse(HttpStatusCode.OK, confirmedUser);
 
             return Request.CreateResponse(HttpStatusCode.NotFound, "");
 

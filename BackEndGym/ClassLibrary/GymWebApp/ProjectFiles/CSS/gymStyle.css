@@ -202,6 +202,19 @@ video{
     border: 1px solid black;
     box-shadow: 10px 10px 5px #888888;
 }
+
+#dashboard{
+    background-color:gainsboro;
+    width:80%;
+    position:absolute;
+    top:10%;
+    right: 10%;
+    height: 80%;
+    border-radius: 10px;   
+    border: 1px solid black;
+    box-shadow: 10px 10px 5px #888888;
+    opacity:0.8;
+}
 .form-control{
     width:90%;
     margin: auto;
@@ -221,6 +234,20 @@ video{
     width: 50%;
     margin-right: 25%;
 }
+.update-class{
+    visibility:hidden;
+
+}
+.manager{
+    visibility:visible;
+    color:black;
+    background-color:red
+}
+
+.red-strike{
+    color:red;
+    text-decoration:line-through;
+}
 footer {
     background-color: #333;
     color: #ddd;
@@ -233,6 +260,49 @@ footer {
     position: relative;
     top: -34px;
     opacity:1;
+}
+#lessons{
+    border-collapse:collapse;
+    border: dashed 2px blue;
+}
+#hi_admin_name{
+    margin-right:3%;
+}
+#dashboard_container{
+    width: 90%;
+    margin: auto;
+
+}
+#bts_tbl input{
+    color:black;
+}
+#input_container {
+    text-align: center;
+}
+
+#input_container p{
+    font-weight:bold;
+    font-size:4vh;
+}
+#input_lesson_id{
+    background-color:burlywood;
+}
+#lessons th,td{
+    color:red;
+     border: solid 2px darkgray;
+
+}
+#submit_btn{
+    margin-right:10px;
+}
+.table>tfoot>tr.danger>td,.table>tbody>tr.danger>td{
+     border: solid 2px darkgray;
+
+}
+.table input,#input_lesson_id{
+    background-color:burlywood;
+    line-height:200%;
+
 }
 
 #active{

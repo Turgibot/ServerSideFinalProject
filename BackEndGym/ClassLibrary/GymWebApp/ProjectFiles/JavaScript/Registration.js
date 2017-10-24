@@ -45,13 +45,16 @@ function addUser()
 
 }
 
+goToHomePage = function () {
+    window.location = "home.html";
+}
 
 
 onSuccess = function (data, status, xhr) {
     console.log("success: " + data + " | " + status + " | " + xhr + " | " + xhr.status);
    
     if (xhr.status == 204 || xhr.status == 200)
-        window.location = "home.html";
+        goToHomePage();
    
     else
         alert("Some error occured, please refresh you page and try again! ")

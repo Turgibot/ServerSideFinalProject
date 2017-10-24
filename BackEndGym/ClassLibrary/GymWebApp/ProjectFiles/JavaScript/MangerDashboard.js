@@ -1,4 +1,10 @@
-﻿onSuccess = function (data) {
+﻿window.onload = function (e) {
+    var name = localStorage.getItem('first_name');
+    $('#friends')[0].innerText = "היי " + name;
+    $('#hi_admin_name')[0].innerText = "היי, " + name;
+    
+}
+onSuccess = function (data) {
     console.log("success on get all lessons");
     showLessons(data);
 }
@@ -66,18 +72,18 @@ function showLessons(lessons) {
     $("#lessons").empty();
 
     var $tr0 = $("<tr>");
-    var $td0_lesson_id = $("<td>").html("Lesson Id");
-    var $td0_lesson_name = $("<td>").html("Lesson Name");
-    var $td0_lesson_days = $("<td>").html("Lesson Days");
-    var $td0_lesson_start_time = $("<td>").html("Start Time");
-    var $td0_lesson_duration = $("<td>").html("Lesson Duration");
-    var $td0_capacity = $("<td>").html("Capacity");
-    var $td0_instructor_name = $("<td>").html("Instructor Name");
-    var $td0_training_type = $("<td>").html("Training Type ");
-    var $td0_gear = $("<td>").html("Gear");
+    var $th0_lesson_id = $("<td>").html("Lesson Id");
+    var $th0_lesson_name = $("<td>").html("Lesson Name");
+    var $th0_lesson_days = $("<td>").html("Lesson Days");
+    var $th0_lesson_start_time = $("<td>").html("Start Time");
+    var $th0_lesson_duration = $("<td>").html("Lesson Duration");
+    var $th0_capacity = $("<td>").html("Capacity");
+    var $th0_instructor_name = $("<td>").html("Instructor Name");
+    var $th0_training_type = $("<td>").html("Training Type ");
+    var $th0_gear = $("<td>").html("Gear");
 
 
-    $tr0.append($td0_lesson_id, $td0_lesson_name, $td0_lesson_days, $td0_lesson_start_time, $td0_lesson_duration, $td0_capacity, $td0_instructor_name, $td0_training_type, $td0_gear);
+    $tr0.append($th0_lesson_id, $th0_lesson_name, $th0_lesson_days, $th0_lesson_start_time, $th0_lesson_duration, $th0_capacity, $th0_instructor_name, $th0_training_type, $th0_gear);
     $("#lessons").append($tr0);
 
     for (i in lessons) {
@@ -95,7 +101,7 @@ function showLessons(lessons) {
         var $td_gear = $("<td>").html(lessons[i].gear).attr("id", "gear" + i);
 
         $tr.append($td_lesson_id, $td_lesson_name, $td_lesson_days, $td_lesson_start_time, $td_lesson_duration, $td_capacity, $td_instructor_name, $td_training_type, $td_gear);
-
+        $tr.addClass('danger');
         $("#lessons").append($tr);
 
     }
@@ -198,9 +204,10 @@ function askForLessonId()
 
     var $dashboard_container = $("#dashboard_container");
     var $input_container = $("<div>").attr({"id":"input_container"});
-    var $p = $("<p>").html("Enter the lesson ID:");
+    var $p = $("<p>").html("מהו מספר האימון היחודי?");
     var $input_lesson_id = $("<input>").attr({ "type": "text", "id": "input_lesson_id" });
-    var $submit_btn = $("<input>").attr({ "type": "button", "id": "submit_btn" }).val("Submit");
+    var $submit_btn = $("<input>").attr({ "type": "button", "id": "submit_btn" }).val("מצא אימון");
+    $submit_btn.addClass('btn btn-warning');
     $submit_btn.click(function () {
         if ($input_lesson_id.val() != "")
         {

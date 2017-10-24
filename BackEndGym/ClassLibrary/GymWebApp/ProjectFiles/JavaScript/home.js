@@ -26,17 +26,22 @@
 });
 
 onSuccess = function (data, status, xhr) {
-    console.log("success: " + data + " | " + status + " | " + xhr + " | " + xhr.status);
+    console.log("success: " + data.first_name + " | " + status + " | " + xhr + " | " + xhr.status);
 
     if (xhr.status == 200) {
         $('.dropdown').class = 'dropdown';
-        $('#friends')[0].innerText = "היי " + data;
+        $('#friends')[0].innerText = "היי " + data.first_name;
         $('.dropdown').dropdown('toggle');
-        var $icon = $('<i>');
-        $icon.attr('class', 'fa fa-sign-out fa-3x');
-        $icon.attr('onclick', 'reload()');
+        addIcon();
+       
 
-        $('.nav').append($('<li>').append($icon));
+        localStorage.setItem('first_name', data.first_name);
+        $('#tool-strike').removeClass('red-strike');
+        $('#tool-strike').click(function () {
+            window.location = "lessons.html";
+        })
+        //if (data.is_manager)
+            addManager();
     }
     else
         alert("Something went wrong, please try again !");
@@ -60,11 +65,24 @@ function validateUser() {
     //making ajax call to UserController 
     ajaxHandler(Type.get, urlGenerator(["user", user.user_name, user.password]), "", onSuccess, onError);
 }
-function gotoRegisterPage() {
+var gotoRegisterPage = function() {
     window.location = 'Registration.html';
 }
-reload = function () {
+var reload = function () {
     window.confirm("תודה שבאת")
     window.location.reload();
+}
+
+var addManager = function () {
+    $('.update-class').addClass('manager');
+}
+var goToMangerDashboard = function () {
+    window.location = 'MangerDashboard.html';
+}
+var addIcon = function () {
+    var $icon = $('<i>');
+    $icon.attr('class', 'fa fa-sign-out fa-3x');
+    $icon.attr('onclick', 'reload()');
+    $('.nav').append($('<li>').append($icon));
 }
 
