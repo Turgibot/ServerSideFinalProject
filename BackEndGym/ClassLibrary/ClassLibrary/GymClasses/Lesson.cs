@@ -87,6 +87,22 @@ namespace ClassLibrary
 
             return true; // means that the lesson is updated successfuly in the database.
         }
+
+
+
+        public List<Lesson> getLessonInfoByLessonName(string lesson_name)
+        {
+            try
+            {
+                myGymDBConnection db = new myGymDBConnection();
+                return db.Lessons.Where(x => x.lesson_name == lesson_name).ToList();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
     }
 
 
