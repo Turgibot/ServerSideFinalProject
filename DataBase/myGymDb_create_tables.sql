@@ -46,7 +46,7 @@ create table UserInLesson
 (
 user_id int foreign key references Users(user_id),
 lesson_id char(9) foreign key references Lessons(lesson_id),
-participation_datetime datetime,
+lesson_day nvarchar(15),
 record_id int identity(1,1) primary key
 );
 
