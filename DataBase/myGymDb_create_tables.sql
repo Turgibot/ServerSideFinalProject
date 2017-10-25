@@ -1,4 +1,11 @@
-﻿
+﻿ -- update is_manager value  --
+
+UPDATE users
+SET is_manager = 1.
+WHERE user_id = 3; 
+
+-----------------------------------
+
 ALTER TABLE Lessons
 ALTER COLUMN training_type nvarchar(15);
 
