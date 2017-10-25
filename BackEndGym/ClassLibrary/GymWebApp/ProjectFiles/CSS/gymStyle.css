@@ -204,7 +204,7 @@ video{
 }
 
 #dashboard{
-    background-color:gainsboro;
+    background-color:rgba(220, 220, 220, 0.53);
     width:80%;
     position:absolute;
     top:10%;

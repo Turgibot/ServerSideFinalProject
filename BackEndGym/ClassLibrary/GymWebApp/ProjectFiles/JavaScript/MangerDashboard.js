@@ -1,10 +1,4 @@
-﻿window.onload = function (e) {
-    var name = localStorage.getItem('first_name');
-    $('#friends')[0].innerText = "היי " + name;
-    $('#hi_admin_name')[0].innerText = "היי, " + name;
-    
-}
-onSuccess = function (data) {
+﻿onSuccess = function (data) {
     console.log("success on get all lessons");
     showLessons(data);
 }

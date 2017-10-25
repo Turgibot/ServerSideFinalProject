@@ -1,6 +1,4 @@
 ﻿
-new WOW().init();
-
 function checkForm() {
     //making sure all the inputs are not empty
     var username_valid = $("#username").val() != "";
@@ -43,10 +41,6 @@ function addUser()
     ajaxHandler(Type.pos, urlGenerator(["user"]), user, onSuccess, onError);
 
 
-}
-
-goToHomePage = function () {
-    window.location = "home.html";
 }
 
 

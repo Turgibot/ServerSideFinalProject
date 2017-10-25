@@ -18,11 +18,6 @@ onError = function (xhr, status, thrownError) {
 }
 
 
-
-    
-
-
-
 function validateUser() {
     var user = {
         user_name: $("#username").val(),
