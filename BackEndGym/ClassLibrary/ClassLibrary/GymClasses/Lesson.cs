@@ -8,6 +8,7 @@ namespace ClassLibrary
 {
     public partial class Lesson
     {
+   
         public Lesson GetLessonById(string lesson_id)
         {
             myGymDBConnection db = new myGymDBConnection();
@@ -64,7 +65,7 @@ namespace ClassLibrary
 
                 myGymDBConnection db = new myGymDBConnection();
                 Lesson lesson = db.Lessons.Single(x => x.lesson_id.ToLower() == updated_lesson.lesson_id.ToLower());
-                lesson.lesson_id = updated_lesson.lesson_id;
+           //     lesson.lesson_id = updated_lesson.lesson_id;
                 lesson.lesson_name = updated_lesson.lesson_name;
                 lesson.lesson_days = updated_lesson.lesson_days;
                 lesson.lesson_start_time = updated_lesson.lesson_start_time;

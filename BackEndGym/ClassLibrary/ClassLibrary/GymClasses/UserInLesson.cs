@@ -48,7 +48,7 @@ namespace ClassLibrary
             }
         }
 
-        //      lesson_day, lesson_id, lesson,time
+       
 
     }
 }
