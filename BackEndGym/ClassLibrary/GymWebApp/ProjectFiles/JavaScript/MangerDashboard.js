@@ -248,9 +248,9 @@ function createInputTableForUpdateLesson(Lesson)
     $("#lessons").append($tr0);
 
     var $tr1 = $("<tr>");
-    var $td1_lesson_id = $("<td>");
-    var $input_lesson_id = $("<input>").attr({ "type": "text", "id": "input_lesson_id" }).val(Lesson.lesson_id);
-    $td1_lesson_id.append($input_lesson_id);
+    var $td1_lesson_id = $("<td>").attr({"id": "lesson_id" }).html(Lesson.lesson_id);
+    //var $input_lesson_id = $("<input>").attr({ "type": "text", "id": "input_lesson_id" }).val(Lesson.lesson_id);
+    //$td1_lesson_id.append($input_lesson_id);
 
     var $td1_lesson_name = $("<td>");
     var $input_lesson_name = $("<input>").attr({ "type": "text", "id": "input_lesson_name" }).val(Lesson.lesson_name);
@@ -303,7 +303,7 @@ function createInputTableForUpdateLesson(Lesson)
 function updateLesson() {
 
     var updated_lesson = {
-        lesson_id: $("#input_lesson_id").val(),
+        lesson_id: $("#lesson_id").html(),
         lesson_name: $("#input_lesson_name").val(),
         lesson_days: $("#input_lesson_days").val(),
         lesson_start_time: $("#input_start_time").val(),

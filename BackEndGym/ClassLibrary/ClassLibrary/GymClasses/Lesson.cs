@@ -12,7 +12,7 @@ namespace ClassLibrary
         public Lesson GetLessonById(string lesson_id)
         {
             myGymDBConnection db = new myGymDBConnection();
-            Lesson l = db.Lessons.Single(x => x.lesson_id.ToLower() == lesson_id.ToLower());
+            Lesson l = db.Lessons.Single(x => x.lesson_id.ToLower().Trim() == lesson_id.ToLower().Trim());
             if ((l != null))
                 return l; //  means that we found this particual lesson
 
@@ -56,16 +56,10 @@ namespace ClassLibrary
         {
             try
             {
-                //myGymDBConnection db = new myGymDBConnection();
-                //db.Entry(updated_lesson).State = System.Data.Entity.EntityState.Modified;
-                //var new_lines = db.SaveChanges();
-                //if (new_lines == 0)
-                //    return false;
-
 
                 myGymDBConnection db = new myGymDBConnection();
-                Lesson lesson = db.Lessons.Single(x => x.lesson_id.ToLower() == updated_lesson.lesson_id.ToLower());
-           //     lesson.lesson_id = updated_lesson.lesson_id;
+                Lesson lesson = db.Lessons.Single(x => x.lesson_id.ToLower().Trim() == updated_lesson.lesson_id.ToLower().Trim());
+         
                 lesson.lesson_name = updated_lesson.lesson_name;
                 lesson.lesson_days = updated_lesson.lesson_days;
                 lesson.lesson_start_time = updated_lesson.lesson_start_time;
@@ -95,7 +89,7 @@ namespace ClassLibrary
             try
             {
                 myGymDBConnection db = new myGymDBConnection();
-                return db.Lessons.Where(x => x.lesson_name == lesson_name).ToList();
+                return db.Lessons.Where(x => x.lesson_name.ToLower().Trim() == lesson_name.ToLower().Trim()).ToList();
             }
             catch (Exception e)
             {

@@ -11,8 +11,8 @@ namespace ClassLibrary
          public User validateUser(string username, string pass)
         {
             myGymDBConnection db = new myGymDBConnection();
-            User u = db.Users.Single(x => x.user_name.ToLower() == username);
-            if ((u != null) && (u.password == pass))
+            User u = db.Users.Single(x => x.user_name.ToLower().Trim() == username.ToLower().Trim());
+            if ((u != null) && (u.password.Trim() == pass.Trim()))
                 return u; //  means that the validation is succeed!
 
 
