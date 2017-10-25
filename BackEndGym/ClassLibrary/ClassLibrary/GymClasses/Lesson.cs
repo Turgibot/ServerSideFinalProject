@@ -90,7 +90,7 @@ namespace ClassLibrary
 
 
 
-        public List<Lesson> getLessonInfoByLessonName(string lesson_name)
+        public List<Lesson> getLessonsByLessonName(string lesson_name)
         {
             try
             {
