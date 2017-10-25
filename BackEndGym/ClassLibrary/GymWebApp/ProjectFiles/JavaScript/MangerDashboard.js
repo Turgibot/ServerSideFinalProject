@@ -12,16 +12,16 @@ addLessonOnSuccess = function (data, status, xhr) {
     console.log("success: " + data + " | " + status + " | " + xhr + " | " + xhr.status);
 
     if (xhr.status == 204 || xhr.status == 200)
-        alert("success");
+        alert("השיעור התווסף בהצלחה.");
 
     else
-        alert("Some error occured, please refresh you page and try again! ")
+        alert("שגיאה כלשהי קרתה, אנא רענן את הדף ונסה שנית")
 }
 
 addLessonOnError = function (xhr, status, thrownError) {
     console.log("failure: " + status + " | " + thrownError + " | " + xhr + " | " + xhr.status);
     // xhr.status == 500
-    alert("error! one or more of your inputs don't meet the conditions !");
+    alert("שגיאה! אחד או יותר מהנתונים לא מתאימים, אנא נסה שנית. ");
 
 }
 
@@ -42,16 +42,17 @@ updateLessonOnSuccess = function (data, status, xhr) {
     console.log("success: " + data + " | " + status + " | " + xhr + " | " + xhr.status);
 
     if (xhr.status == 204 || xhr.status == 200)
-        alert("success");
+        alert("השיעור התעדכן בהצלחה");
 
     else
-        alert("Some error occured, please refresh you page and try again! ")
+        alert("שגיאה כלשהי קרתה, אנא רענן את הדף ונסה שנית")
+
 }
 
 updateLessonOnError = function (xhr, status, thrownError) {
     console.log("failure: " + status + " | " + thrownError + " | " + xhr + " | " + xhr.status);
     // xhr.status == 500 || 404
-    alert("error! one or more of your inputs don't meet the conditions !");
+    alert("שגיאה! אחד או יותר מהנתונים לא מתאימים, אנא נסה שנית. ");
 
 }
 
@@ -209,7 +210,7 @@ function askForLessonId()
             $input_container.remove();
         }
         else
-            alert("You must fill the field to procced !");
+            alert("אתה חייב למלא את השדה בכדי להמשיך !");
         
     });
 

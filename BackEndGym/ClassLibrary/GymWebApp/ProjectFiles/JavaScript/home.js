@@ -27,13 +27,13 @@ onSuccess = function (data, status, xhr) {
 
     }
     else
-        alert("Something went wrong, please try again !");
+        alert("משהו השתבש, אנא נסה שנית !");
 }
 
 onError = function (xhr, status, thrownError) {
     console.log("failure: " + status + " | " + thrownError + " | " + xhr + " | " + xhr.status);
     if (xhr.status == 404 || xhr.status == 500)
-        alert("Bad username or password, please try again!");
+        alert("שם משתמש או סיסמא אינם תקינים, אנא נסה שנית !");
 
 }
 
@@ -43,8 +43,12 @@ function validateUser() {
         password: $("#user-pass").val()
     };
 
-    //making ajax call to UserController 
-    ajaxHandler(Type.get, urlGenerator(["user", user.user_name, user.password]), "", onSuccess, onError);
+    //check field are not empty
+    if (user.user_name != "" && user.password != "")
+        //making ajax call to UserController 
+        ajaxHandler(Type.get, urlGenerator(["user", user.user_name, user.password]), "", onSuccess, onError);
+    else
+        alert("שגיאה! אנא מלא את כל השדות לפני הכניסה למערכת.")
 }
 
 

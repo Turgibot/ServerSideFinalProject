@@ -10,14 +10,7 @@ namespace GymWebApp.Controllers
 {
     public class UserController : ApiController
     {
-        // GET api/<controller>
         
-        public string Get()
-        {
-
-            return "";
-        }
-
         // GET api/user/username/pass
 
         [Route("api/user/{username}/{pass}")]

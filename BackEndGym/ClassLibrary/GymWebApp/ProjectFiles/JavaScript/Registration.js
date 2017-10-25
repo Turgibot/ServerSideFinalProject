@@ -16,11 +16,11 @@ function checkForm() {
         addUser();
 
     if (!username_valid || !pass_valid || !confirm_pass_valid || !name_valid || !surname_valid || !phone_valid || !birthday_valid)
-        alert("One or more of the input fields are empty, please fill them up !")
+        alert("אחד או יותר מהשדות ריקים, אנא מלא את כולם בהתאם")
 
     else if(password_confirmed != 0)
-        alert("Your confirm password is not identical to the password you chose, please try again !")
-    
+        alert("הסיסמה ואימות הסיסמה שבחרת אינם זהים, אנא נסת שנית ! ")
+
 }
 
 
@@ -48,16 +48,19 @@ onSuccess = function (data, status, xhr) {
     console.log("success: " + data + " | " + status + " | " + xhr + " | " + xhr.status);
    
     if (xhr.status == 204 || xhr.status == 200)
+    {
+        alert(".כל הכבוד! נרשמת בהצלחה, אנא התחבר לאתר עם שם המשתמש והסיסמא שיצרת")
         goToHomePage();
+    }
    
     else
-        alert("Some error occured, please refresh you page and try again! ")
+        alert("קרתה שגיאה כלשהי, אנא רענן את העמוד ונסה שנית, תודה. ")
 }
 
 onError = function (xhr, status, thrownError) {
     console.log("failure: " + status + " | " + thrownError + " | " + xhr + " | " + xhr.status);
     // xhr.status == 500
-    alert("error! one or more of your inputs don't meet the conditions !");
+    alert("שגיאה! אחד או יותר מהנתונים שהכנסת לא מתאימים.");
 
 }
 
