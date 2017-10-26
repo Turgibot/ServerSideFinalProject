@@ -10,9 +10,11 @@ namespace GymWebApp.Controllers
 {
     public class UserInLessonController : ApiController
     {
-        public IEnumerable<string> Get()
+        [HttpGet]
+        [Route("api/userinlesson/{lesson_id}/{lesson_day}")]
+        public int Get(string lesson_id, string lesson_day)
         {
-            return new string[] { "value1", "value2" };
+            return new UserInLesson().GetNumOfUsersInLesson(lesson_id, lesson_day);
         }
 
         // GET api/userinlesson/5
@@ -25,9 +27,15 @@ namespace GymWebApp.Controllers
         }
 
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        // POST api/userinlesson
+        [HttpPost]
+        public HttpResponseMessage Post([FromBody]List<UserInLesson> new_uil)
         {
+            bool succeed = new UserInLesson().AddUIL(new_uil); // Holds true if the new uil added successfuly to the database.
+            if (succeed)
+                return Request.CreateResponse(HttpStatusCode.OK, "");
+
+            return Request.CreateResponse(HttpStatusCode.NotFound, "");
         }
 
         // PUT api/<controller>/5
@@ -36,8 +44,17 @@ namespace GymWebApp.Controllers
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("api/userinlesson/{user_id}/{lesson_id}")]
+        public bool Delete(List<UserInLesson> uil)
         {
+            bool succeed = new UserInLesson().DeleteUIL(uil); // Holds true if the new uil deleted successfuly from the database.
+            if (succeed)
+                return true;
+
+            return false;
+
+            //return true if it deleted successfuly
         }
     }
 }
