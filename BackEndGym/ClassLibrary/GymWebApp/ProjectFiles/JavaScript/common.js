@@ -134,6 +134,8 @@ var reload = function () {
     window.confirm("תודה שבאת")
     window.location.reload();
     localStorage.clear();
+    goToHomePage();
+
 }
 
 var addManager = function () {
@@ -161,3 +163,15 @@ function updatePage(data) {
     if (data.is_manager === true)
         addManager();
 }
+
+
+
+$(document).ready(function () {
+
+    if (localStorage.getItem("is_manager") == "true") {
+        addManager();
+    }
+
+
+})
+

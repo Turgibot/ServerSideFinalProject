@@ -320,9 +320,15 @@ function updateLesson() {
 }
 
 
+function addNameToHiAdmin(name) {
+    console.log("inside addNameToHiAdmin");
+    $("#hi_admin").html("היי, " + name);
+}
+
 
     $(document).ready(function () {
     
-
+        var adminName = localStorage.getItem("first_name");      
+        addNameToHiAdmin(adminName);
 
     })
