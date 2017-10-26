@@ -73,19 +73,16 @@ var alreadyExist = function (curr_lesson,lesson_pair) {
 }
 var updateLessonInTable = function (lesson, lesson_id) {
     var _days = string2Days(lesson.lesson_days);
-
-    for (var i in _days) {
-       
-        var $tbl = $('#' + lesson_id.trim()+"-"+_days[i]);
+    for (var j in _days) {
+        var $tbl = $('#' + lesson_id.trim() + "_" + _days[j]);
         var tds = $tbl.find('td');
         for (var i in tds) {
             if (tds[i].innerHTML == "") {
                 var tr1 = document.createElement('tr');
-                
                 tds[i].innerHTML = "" + lesson.lesson_start_time.substring(0, 5);
-                tds[i].setAttribute('id', "" + lesson_id.trim() + "" + i + "-" + lesson.lesson_start_time.substring(0, 2));
+                tds[i].setAttribute('id', "" + lesson_id.trim() + "" + _days[j] + "_" + lesson.lesson_start_time.substring(0, 2));
                 tds[i].setAttribute('status', Status.active);
-                tds[i].setAttribute('onclick', 'toggleColors('+'"'+lesson_id.trim() + "" + i + "-" + lesson.lesson_start_time.substring(0, 2) +'"'+ ')');
+                tds[i].setAttribute('onclick', 'toggleColors(' + '"' + lesson_id.trim() + "" + _days[j] + "_" + lesson.lesson_start_time.substring(0, 2) + '"' + ')');
                 tds[i].setAttribute('data-toggle', 'tooltip');
                 tds[i].setAttribute('title', 'משך השיעור: ' + lesson.lesson_duration + ' מדריך: ' + lesson.instructor_name);
                 tds[i].setAttribute('style', 'background-color: yellow');
@@ -120,13 +117,14 @@ var addHours = function (days, lesson_pair, start_time, duration, instr,status) 
         var $day_tr = $('#day' + days[i]);
         var $td = $('<td>');
         var $tbl = $('<table>');
-        $tbl.attr('id', "" + lesson_pair.id.trim() + "-" + days[i])
+        $tbl.attr('id', "" + lesson_pair.id.trim() + "_" + days[i])
         var $tr1 = $('<tr>');
         var $td1 = $('<td>');
         $td1.html("" + start_time.substring(0, 5));
-        $td1.attr('id', "" + lesson_pair.id.trim() + "" + i + "-" + start_time.substring(0, 2));
+        $td1.attr('id', "" + lesson_pair.id.trim() + "" + days[i] + "_" + start_time.substring(0, 2));
         $td1.attr('status', status);
-        $td1.attr('onclick', 'toggleColors(' + lesson_pair.id.trim() + "" + i + "-" + start_time.substring(0, 2) + ')');
+        var str = lesson_pair.id.trim() + '' + days[i] + '_' + start_time.substring(0, 2);
+        $td1.attr('onclick', 'toggleColors("' + str.trim() + '")');
         var $tr2 = $('<tr>');
         var $td2 = $('<td>');
         $td2.html("");
@@ -165,36 +163,12 @@ var getUserLessonsOnSuccess = function (data) {
     }
 }
 
-
-var adddd = function (days, lesson_pair, start_time, duration, instr) {
-
-    for (var i in days) {
-        var $day_tr = $('#day' + days[i]);
-        var $td = $('<td>');
-        var $tbl = $('<table>');
-        $tbl.attr('id', "" + lesson_pair.id.trim() + "-" + days[i])
-        var $tr1 = $('<tr>');
-        var $td1 = $('<td>');
-        $td1.html("" + start_time.substring(0, 5));
-        $td1.attr('id', "" + lesson_pair.id.trim() + "" + i + "-" + start_time.substring(0, 3));
-        $td1.attr('status', '1');
-        $td1.attr('onclick', 'toggleColors(' + '"' + lesson_pair.id.trim() + "" + i + "-" + start_time.substring(0, 3) + '"' + ')');
-        var $tr2 = $('<tr>');
-        var $td2 = $('<td>');
-        $td2.html("");
-        var $tr3 = $('<tr>');
-        var $td3 = $('<td>');
-        $td3.html("");
-        $td1.attr({ 'data-toggle': 'tooltip', 'title': 'משך השיעור: ' + duration + ' מדריך: ' + instr });
-        $day_tr.append($td.append($tbl.append($tr1.append($td1), $tr2.append($td2), $tr3.append($td3))));
-    }
-   
-}
 var toggleColors = function (id) {
     var colors = ['white', 'yellow', 'blue', 'red'];
     var $td = $('#' + id);
     var stat = $td.attr('status');
     stat++;
+    $td.attr('status',stat);
     $td.css('background-color', colors[stat]);
 
 }
@@ -208,7 +182,7 @@ var getLessonByIdOnSuccess = function (lesson) {
     var days = string2Days(lesson.lesson_days);
     for (var i in days) {
 
-        var td_id = lesson.lesson_id.trim() + "" + i + "-" + lesson.lesson_start_time.substring(0, 2);
+        var td_id = lesson.lesson_id.trim() + "" + days[i] + "_" + lesson.lesson_start_time.substring(0, 2);
         var $td = $('#' + td_id);
         var sts = $td.attr('status', Status.registered);
         $td.css('background-color', 'blue');
