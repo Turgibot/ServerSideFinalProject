@@ -52,7 +52,13 @@ function validateUser() {
 }
 
 
-function updateLocalStorage(data){
+function updateLocalStorage(data) {
+    localStorage.setItem('user_id', data.user_id);
     localStorage.setItem('first_name', data.first_name);
     localStorage.setItem('is_manager', data.is_manager);
 }
+
+
+
+
+
