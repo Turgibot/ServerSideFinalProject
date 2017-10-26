@@ -8,6 +8,8 @@ var $td = $('<td>');
 var lessons = {};
 var lessonsOfUser = {};
 var active_lessons = [];
+var lessonsRegistered = [];
+var lessonsDeleted = [];
 
 var getLessonsOnSuccess = function (data) {
     lessons = getLessonsDB(data);
@@ -124,7 +126,8 @@ var addHours = function (days, lesson_pair, start_time, duration, instr,status) 
         $td1.attr('id', "" + lesson_pair.id.trim() + "" + days[i] + "_" + start_time.substring(0, 2));
         $td1.attr('status', status);
         var str = lesson_pair.id.trim() + '' + days[i] + '_' + start_time.substring(0, 2);
-        $td1.attr('onclick', 'toggleColors("' + str.trim() + '")');
+        if(status!=0)
+            $td1.attr('onclick', 'toggleColors("' + str.trim() + '")');
         var $tr2 = $('<tr>');
         var $td2 = $('<td>');
         $td2.html("");
@@ -164,13 +167,15 @@ var getUserLessonsOnSuccess = function (data) {
 }
 
 var toggleColors = function (id) {
-    var colors = ['white', 'yellow', 'blue', 'red'];
+    var colors = ['yellow', 'blue'];
     var $td = $('#' + id);
+   
     var stat = $td.attr('status');
-    stat++;
-    $td.attr('status',stat);
-    $td.css('background-color', colors[stat]);
+    stat = parseInt((stat) % 2);
 
+    $td.css('background-color', colors[stat]);
+    $td.attr('status', (stat+1));
+    lessonUpdate(id, (stat + 1));
 }
 
 var getLessonById = function (id) {
@@ -188,7 +193,69 @@ var getLessonByIdOnSuccess = function (lesson) {
         $td.css('background-color', 'blue');
     }
 }
+   
+var lessonUpdate = function (id, status) {
+    var time = id.substring(6, 8);
+    var user_id = localStorage.getItem("user_id");
+    var lesson_id = id.substring(0, 4);
+    var day = id.substring(4, 5);
+    var userInLesson = new UserInLesson();
+    lesson_id = getLessonId(lesson_id, time);
+    userInLesson.lesson_id = lesson_id;
+    userInLesson.user_id = user_id;
+    userInLesson.lesson_day = day;
 
+    if (status == 1) {
+        addToDeletedList(userInLesson);
+    } else {
+        addToRegisterList(userInLesson);
+    }
+}
+var addToDeletedList = function (userInLesson) {
+    for (var i in lessonsRegistered) {
+        if (lessonsRegistered[i].lesson_id == userInLesson.lesson_id)
+            delete lessonsRegistered[i];
+    }
+    lessonsDeleted.push(userInLesson);
+}
 
+var addToRegisterList = function (userInLesson) {
+    for (var i in lessonsDeleted) {
+        if (lessonsDeleted[i].lesson_id == userInLesson.lesson_id)
+            delete lessonsDeleted[i];
+    }
+    lessonsRegistered.push(userInLesson);
+}
+var getLessonId = function (id, time) {
+    var name;
+    for (var i in lessons) {
+        if (id == lessons[i]) {
+            name = lessons[i].lesson_name;
+            break;
+        }
+    }
+    for (var i in lessons) {
+        if (lessons[i].lesson_start_time.startsWith(time)) {
+            return lessons[i].lesson_id;
+        }
+    }
+}
+
+var onUpdateBtn = function () {
+    if (lessonsRegistered.length > 0) {
+        ajaxHandler(Type.pos, urlGenerator(["userinlesson"]), lessonsRegistered, lessonsRegOnSuccess, errorHandler);
+    }
+    if (lessonsDeleted.length > 0) {
+        ajaxHandler(Type.del, urlGenerator(["userinlesson"]), lessonsDeleted, lessonsDelOnSuccess, errorHandler);
+
+    }
+}
+var lessonsRegOnSuccess = function () {
+    alert("השינויים עודכנו בהצלחה");
+}
+
+var lessonsDelOnSuccess = function () {
+    alert("השינויים עודכנו בהצלחה");
+}
 getLessons();
 setTimeout(getLessonsbyUserID,1000);

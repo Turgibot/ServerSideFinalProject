@@ -45,8 +45,8 @@ namespace GymWebApp.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete]
-        [Route("api/userinlesson/{user_id}/{lesson_id}")]
-        public bool Delete(List<UserInLesson> uil)
+        [Route("api/userinlesson/")]
+        public bool Delete([FromBody]List<UserInLesson> uil)
         {
             bool succeed = new UserInLesson().DeleteUIL(uil); // Holds true if the new uil deleted successfuly from the database.
             if (succeed)
