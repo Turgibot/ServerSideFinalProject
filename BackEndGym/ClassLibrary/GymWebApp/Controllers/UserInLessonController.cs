@@ -29,6 +29,7 @@ namespace GymWebApp.Controllers
 
         // POST api/userinlesson
         [HttpPost]
+        [Route("api/userinlesson/add")]
         public HttpResponseMessage Post([FromBody]List<UserInLesson> new_uil)
         {
             bool succeed = new UserInLesson().AddUIL(new_uil); // Holds true if the new uil added successfuly to the database.

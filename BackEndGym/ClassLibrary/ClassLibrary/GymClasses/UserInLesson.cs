@@ -58,6 +58,7 @@ namespace ClassLibrary
                 myGymDBConnection db = new myGymDBConnection();
                 foreach(UserInLesson i in new_uil)
                 {
+                    i.lesson_day = convertDayNumToLetter(i.lesson_day);
                     db.UserInLessons.Add(i);
                 }              
                 var new_lines = db.SaveChanges();
@@ -82,7 +83,8 @@ namespace ClassLibrary
             {
                 myGymDBConnection db = new myGymDBConnection();
                 foreach (UserInLesson i in uil)
-                {                 
+                {
+                    i.lesson_day = convertDayNumToLetter(i.lesson_day);
                     db.Entry(i).State = System.Data.Entity.EntityState.Deleted;
                 }
                 var new_lines = db.SaveChanges();
@@ -127,8 +129,8 @@ namespace ClassLibrary
         {
             lesson_day = convertDayNumToLetter(lesson_day);
             myGymDBConnection db = new myGymDBConnection();
-            var filtered_list = db.UserInLessons.Where(x => x.lesson_id.ToLower().Trim() == lesson_id.ToLower().Trim()).ToList();
-            return  filtered_list.Where(x => x.lesson_day.ToLower().Trim() == lesson_day.ToLower().Trim()).Count();
+            var filtered_list = db.UserInLessons.Where(x => x.lesson_id.ToLower().Trim() == lesson_id.ToLower().Trim() && x.lesson_day.ToLower().Trim() == lesson_day.ToLower().Trim()).Count();
+            return filtered_list;
         }
     }
 }
