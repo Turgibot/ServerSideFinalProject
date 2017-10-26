@@ -10,10 +10,11 @@ var lessonsOfUser = {};
 var active_lessons = [];
 var lessonsRegistered = [];
 var lessonsDeleted = [];
-
+var numOfUsersInLesson = [];
 var getLessonsOnSuccess = function (data) {
     lessons = getLessonsDB(data);
     createlessonsTable();
+
     //console.log(data);
     //getLessonsbyUserID
 }
@@ -50,23 +51,23 @@ createlessonsTable = function () {
     
     for (var i in lessons) {
         var name = lessons[i].lesson_name;
-        var lesson_pair = {};
-        lesson_pair.name = name;
-        lesson_pair.id = lessons[i].lesson_id;
-        if (alreadyExist(lessons[i], lesson_pair)) {
+        var lesson_info = {};
+        lesson_info.name = name;
+        lesson_info.id = lessons[i].lesson_id;
+        if (alreadyExist(lessons[i], lesson_info)) {
             continue;
         }
-        active_lessons.push(lesson_pair);
+        active_lessons.push(lesson_info);
         addTitle(name);
         var days = string2Days(lessons[i].lesson_days);
-        addHours(days, lesson_pair, lessons[i].lesson_start_time, lessons[i].lesson_duration, lessons[i].instructor_name.trim(), Status.active);
-        completeWhiteSpaces(days, lesson_pair);
+        addHours(days, lesson_info, lessons[i].lesson_start_time, lessons[i].lesson_duration, lessons[i].instructor_name.trim(), Status.active);
+        completeWhiteSpaces(days, lesson_info);
 
     }
 }
-var alreadyExist = function (curr_lesson,lesson_pair) {
+var alreadyExist = function (curr_lesson,lesson_info) {
     for (var i in active_lessons) {
-        if (lesson_pair.name == active_lessons[i].name) {
+        if (lesson_info.name == active_lessons[i].name) {
             updateLessonInTable(curr_lesson, active_lessons[i].id);
             return true;
         }
@@ -74,6 +75,7 @@ var alreadyExist = function (curr_lesson,lesson_pair) {
     return false;
 }
 var updateLessonInTable = function (lesson, lesson_id) {
+   
     var _days = string2Days(lesson.lesson_days);
     for (var j in _days) {
         var $tbl = $('#' + lesson_id.trim() + "_" + _days[j]);
@@ -81,7 +83,7 @@ var updateLessonInTable = function (lesson, lesson_id) {
         for (var i in tds) {
             if (tds[i].innerHTML == "") {
                 var tr1 = document.createElement('tr');
-                tds[i].innerHTML = "" + lesson.lesson_start_time.substring(0, 5);
+                tds[i].innerHTML = "" + lesson.lesson_start_time.substring(0, 5) + ' ' + 'משך השיעור: ' + lesson.lesson_duration + ' מדריך: ' + lesson.instructor_name;
                 tds[i].setAttribute('id', "" + lesson_id.trim() + "" + _days[j] + "_" + lesson.lesson_start_time.substring(0, 2));
                 tds[i].setAttribute('status', Status.active);
                 tds[i].setAttribute('onclick', 'toggleColors(' + '"' + lesson_id.trim() + "" + _days[j] + "_" + lesson.lesson_start_time.substring(0, 2) + '"' + ')');
@@ -113,21 +115,23 @@ var addTitle = function(name){
     $th.html(name);
     $tr.append($th);
 }
-var addHours = function (days, lesson_pair, start_time, duration, instr,status) {
+var addHours = function (days, lesson_info, start_time, duration, instr,status) {
 
-    for(var i in days){
+    for (var i in days) {
+
         var $day_tr = $('#day' + days[i]);
         var $td = $('<td>');
         var $tbl = $('<table>');
-        $tbl.attr('id', "" + lesson_pair.id.trim() + "_" + days[i])
+        $tbl.attr('id', "" + lesson_info.id.trim() + "_" + days[i])
         var $tr1 = $('<tr>');
-        var $td1 = $('<td>');
-        $td1.html("" + start_time.substring(0, 5));
-        $td1.attr('id', "" + lesson_pair.id.trim() + "" + days[i] + "_" + start_time.substring(0, 2));
+        var $td1 = $('<td>');          
+        $td1.attr('id', "" + lesson_info.id.trim() + "" + days[i] + "_" + start_time.substring(0, 2));
         $td1.attr('status', status);
-        var str = lesson_pair.id.trim() + '' + days[i] + '_' + start_time.substring(0, 2);
-        if(status!=0)
+        var str = lesson_info.id.trim() + '' + days[i] + '_' + start_time.substring(0, 2);
+        if (status != 0) {
+            $td1.html("" + start_time.substring(0, 5) + ' ' + 'משך השיעור: ' + duration + ' מדריך: ' + instr);
             $td1.attr('onclick', 'toggleColors("' + str.trim() + '")');
+        }
         var $tr2 = $('<tr>');
         var $td2 = $('<td>');
         $td2.html("");
@@ -140,7 +144,7 @@ var addHours = function (days, lesson_pair, start_time, duration, instr,status) 
         $day_tr.append($td.append($tbl.append($tr1.append($td1), $tr2.append($td2), $tr3.append($td3))));
     }
 }
-var completeWhiteSpaces = function (__days, lesson_pair) {
+var completeWhiteSpaces = function (__days, lesson_info) {
     var flag = false;
     var rest_days = [];
     for (var i = 1; i < 8; i++) {
@@ -155,14 +159,14 @@ var completeWhiteSpaces = function (__days, lesson_pair) {
             }
             flag = false;
     }
-    addHours(rest_days, lesson_pair, "", "", "", Status.inactive);
+    addHours(rest_days, lesson_info, "", "", "", Status.inactive,"");
 }
 
 var getUserLessonsOnSuccess = function (data) {
     lessonsOfUser = getLessonsDB(data);
     
     for (var i in lessonsOfUser) {
-        var registeredLesson = getLessonById(lessonsOfUser[i].lesson_id.trim());
+        var registeredLesson = getLessonByLessonId(lessonsOfUser[i].lesson_id.trim());
     }
 }
 
@@ -178,8 +182,8 @@ var toggleColors = function (id) {
     lessonUpdate(id, (stat + 1));
 }
 
-var getLessonById = function (id) {
-    ajaxHandler(Type.get, urlGenerator(["lesson", id]), "", getLessonByIdOnSuccess, errorHandler);
+var getLessonByLessonId = function (lesson_id) {
+    ajaxHandler(Type.get, urlGenerator(["lesson", lesson_id]), "", getLessonByIdOnSuccess, errorHandler);
 
 }
 var getLessonByIdOnSuccess = function (lesson) {
@@ -204,6 +208,8 @@ var lessonUpdate = function (id, status) {
     userInLesson.lesson_id = lesson_id;
     userInLesson.user_id = user_id;
     userInLesson.lesson_day = day;
+    ajaxHandler(Type.get, urlGenerator(["userinlesson", id.trim(), day]), "", getUsersNumOnSuccess, errorHandler);
+
 
     if (status == 1) {
         addToDeletedList(userInLesson);
@@ -243,7 +249,7 @@ var getLessonId = function (id, time) {
 
 var onUpdateBtn = function () {
     if (lessonsRegistered.length > 0) {
-        ajaxHandler(Type.pos, urlGenerator(["userinlesson"]), lessonsRegistered, lessonsRegOnSuccess, errorHandler);
+        ajaxHandler(Type.pos, urlGenerator(["userinlesson","add"]), lessonsRegistered, lessonsRegOnSuccess, errorHandler);
     }
     if (lessonsDeleted.length > 0) {
         ajaxHandler(Type.del, urlGenerator(["userinlesson"]), lessonsDeleted, lessonsDelOnSuccess, errorHandler);
@@ -257,5 +263,9 @@ var lessonsRegOnSuccess = function () {
 var lessonsDelOnSuccess = function () {
     alert("השינויים עודכנו בהצלחה");
 }
+
+var getUsersNumOnSuccess = function (data) {
+    console.log("DAta: "+data);
+}
 getLessons();
-setTimeout(getLessonsbyUserID,1000);
+getLessonsbyUserID();

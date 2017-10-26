@@ -371,7 +371,26 @@ h2{
         background-color: #757171;
 }
 
+.table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td{
+        /* border: none; */
+    height: 100%;
+    width: 226px;
+    padding: 8px;
+    margin: 0;
+    vertical-align: top;
+    /* border-top: 1px solid #ddd; */
+    text-align: center;
+    border-radius: 24px;
+    border: none;
+}
+.table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td{
+        background: navajowhite;
 
+}
+#logo{
+        left: 10%;
+    position: absolute;
+}
 #update-btn{
     position: absolute;
     top: 50%;
