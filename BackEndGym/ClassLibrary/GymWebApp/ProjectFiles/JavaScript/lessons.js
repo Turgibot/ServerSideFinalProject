@@ -254,12 +254,13 @@ var lessonsDelOnSuccess = function () {
 
 var getUsersNumOnSuccess = function (data) {
 
-    var lesson_id = clickedElementID;
-    var time = lesson_id.substring(6, 8);
+    var id = clickedElementID;
+    var time = id.substring(6, 8);
     var user_id = localStorage.getItem("user_id");
-    var day = lesson_id.substring(4, 5);
+    var day = id.substring(4, 5);
+    lesson_id = id.substring(0, 4);
     var colors = ['yellow', 'blue'];
-    var $td = $('#' + lesson_id);
+    var $td = $('#' + id);
     var stat = $td.attr('status');
     stat = parseInt((stat) % 2);
     var freeSpaces = clickedElementCapacity - data;
@@ -280,7 +281,8 @@ var getUsersNumOnSuccess = function (data) {
         $td.css('background-color', colors[stat]);
         $td.attr('status', (stat + 1));
         var currentHtml = $td.html();
-        $td.html(currentHtml + ' נותרו: ' + freeSpaces);
+        if (!currentHtml.includes('נותרו'))
+            $td.html(currentHtml + ' נותרו: ' + freeSpaces);
     }
 }
 getLessons();
