@@ -346,12 +346,6 @@ h2{
 }
 
 
-/* The following code is used to create same-sized columns 
-   in a multi-column layout.
-   Code from:  
-   http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height
-*/
-/* columns of same height styles */
 .container-xs-height {
     display:table;
     padding-left:0px;
@@ -364,6 +358,20 @@ h2{
     display:table-cell;
     float:none;
 }
+
+.table-container{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    margin: 5%;
+    height: auto;
+}
+
+.lessons-body{
+        background-color: #757171;
+}
+
+
 @media (min-width: 768px) {
     .container-sm-height {
         display:table;

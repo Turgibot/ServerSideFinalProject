@@ -86,7 +86,37 @@ var whiteSpaceRemoval = function (str) {
 }
 
 var string2Days = function (daysStr) {
-    return daysStr.split(',');
+    var splt = daysStr.split(',');
+    var days = [];
+    for (var day in splt) {
+        switch (splt[day]) {
+            case 'א':
+                days.push(1);
+                continue;
+            case 'ב':
+                days.push(2);
+                continue;
+            case 'ג':
+                days.push(3);
+                continue;
+            case 'ד':
+                days.push(4);
+                continue;
+            case 'ה':
+                days.push(5);
+                continue;
+            case 'ו':
+                days.push(6);
+                continue;
+            case 'ש':
+                days.push(7);
+                continue;
+
+        }
+
+    }
+    return days;
+
 }
 
 var goToMangerDashboard = function () {

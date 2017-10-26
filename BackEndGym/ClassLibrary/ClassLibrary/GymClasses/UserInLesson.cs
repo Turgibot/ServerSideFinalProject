@@ -9,12 +9,13 @@ namespace ClassLibrary
     public partial class UserInLesson
     {
 
-        public List<UserInLesson> GetUserInLessonByUserId(int user_id)
+        public List<UserInLesson> GetUserInLessonByUserId(string user_id)
         {
             try
             {
+                int id = Int32.Parse(user_id);
                 myGymDBConnection db = new myGymDBConnection();
-                return db.UserInLessons.Where(x => x.user_id == user_id).ToList();
+                return db.UserInLessons.Where(x => x.user_id == id).ToList();
             }
             catch (Exception e)
             {

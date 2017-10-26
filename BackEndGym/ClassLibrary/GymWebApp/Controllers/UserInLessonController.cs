@@ -10,17 +10,20 @@ namespace GymWebApp.Controllers
 {
     public class UserInLessonController : ApiController
     {
-        // GET api/<controller>
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/userinlesson/5
-        public List<UserInLesson> Get(int user_id)
+        [HttpGet]
+        [Route("api/userinlesson/{user_id}")]
+        public List<UserInLesson> Get(string user_id)
         {
+
             return new UserInLesson().GetUserInLessonByUserId(user_id);
         }
+
 
         // POST api/<controller>
         public void Post([FromBody]string value)

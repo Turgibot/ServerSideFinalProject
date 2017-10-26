@@ -11,7 +11,7 @@
     <link href="../CSS/gymStyle.css" rel="stylesheet" />
 
 </head>
-<body>
+<body class="lessons-body">
     <header>
         <nav class="navbar navbar-inverse navbar-fixed-top"
              role="navigation">
@@ -65,7 +65,45 @@
             </div><!-- /.container-fluid -->
         </nav>
     </header>
+    <section id="table-lessons-section" class="row title-row">
 
+        <div class="table-container">
+            <table id="lesson-by-user" class="table table-striped">
+                <thead id="t-head">
+                    <tr id="tr-days">
+                        <th>יום</th>
+                    </tr>
+                </thead>
+                <tbody id="t-body">
+                    <tr class="days" id="day1">
+                        <td>ראשון</td>
+                    </tr>
+                    <tr class="days" id="day2">
+                        <td>שני</td>
+                    </tr>
+                    <tr class="days" id="day3">
+                        <td>שלישי</td>
+                    </tr>
+                    <tr class="days" id="day4">
+                        <td>רביעי</td>
+                    </tr>
+                    <tr class="days" id="day5">
+                        <td>חמישי</td>
+                    </tr>
+                    <tr class="days" id="day6">
+                        <td>שישי</td>
+                    </tr>
+                    <tr class="days" id="day7">
+                        <td>שבת</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+            
+        </div>
+       
+
+    </section>
 
 
 
@@ -74,7 +112,7 @@
     <script src="../JavaScript/jquery.fs.wallpaper.min.js"></script>
     <script src="../JavaScript/wow.min.js"></script>
     <script src="../JavaScript/common.js"></script>
-    <script src="../JavaScript/MangerDashboard.js"></script>
+    <script src="../JavaScript/lessons.js"></script>
 
 </body>
 </html>
