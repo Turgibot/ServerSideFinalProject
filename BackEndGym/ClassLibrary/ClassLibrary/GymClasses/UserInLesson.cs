@@ -129,8 +129,8 @@ namespace ClassLibrary
         {
             lesson_day = convertDayNumToLetter(lesson_day);
             myGymDBConnection db = new myGymDBConnection();
-            var filtered_list = db.UserInLessons.Where(x => x.lesson_id.ToLower().Trim() == lesson_id.ToLower().Trim()).Count();
-            return filtered_list;
+            var filtered_list = db.UserInLessons.Where(x => x.lesson_id.Trim() == lesson_id.Trim());
+            return filtered_list.Count();
         }
     }
 }
