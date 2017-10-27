@@ -274,14 +274,18 @@ var getUsersNumOnSuccess = function (data) {
        
         if (status == 1) {
             addToDeletedList(userInLesson);
+            freeSpaces++;
         } else {
             addToRegisterList(userInLesson);
+            freeSpaces--;
         }
 
         $td.css('background-color', colors[stat]);
         $td.attr('status', (stat + 1));
         var currentHtml = $td.html();
-        if (!currentHtml.includes('נותרו'))
+        if (currentHtml.includes('נותרו')) {
+            currentHtml = currentHtml.substring(indexOf('נותרו'));
+        }
             $td.html(currentHtml + ' נותרו: ' + freeSpaces);
     }
 }
